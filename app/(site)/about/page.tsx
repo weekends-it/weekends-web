@@ -262,42 +262,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ===== TEAM ===== */}
-      <section className="bg-surface-dark">
-        <div className="max-w-7xl mx-auto px-8 md:px-16 py-28 md:py-40">
-          <ScrollReveal>
-            <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-start">
-              <div>
-                <p className="label-section mb-8">Meet the founder</p>
-                <h3 className="heading-serif text-[2.5rem] md:text-[3rem] text-foreground mb-2">
-                  Your Name
-                </h3>
-                <p className="label-section mb-10">
-                  Founder &amp; Lead Technician
-                </p>
-                <div className="space-y-5 text-foreground/50 leading-relaxed">
-                  <p>
-                    With over [X] years of experience in IT support, I&apos;ve
-                    helped hundreds of businesses and families solve their
-                    technology challenges.
-                  </p>
-                  <p>
-                    I started Weekends IT because I saw a real gap in the market:
-                    quality IT support that doesn&apos;t require expensive
-                    contracts and is actually available when people need it most
-                    &mdash; on weekends.
-                  </p>
-                </div>
-              </div>
-              <div className="h-[500px] border border-foreground/8 rounded-2xl overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/Ant-Vyner.jpeg" alt="Ant Vyner" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
       {/* ===== CTA ===== */}
       <section className="bg-surface border-t border-foreground/5">
         <div className="max-w-7xl mx-auto px-8 md:px-16 py-28 md:py-40">
