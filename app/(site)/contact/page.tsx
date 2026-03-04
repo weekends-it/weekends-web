@@ -30,17 +30,6 @@ export default function ContactPage() {
                 <div className="space-y-10">
                   <div>
                     <p className="text-foreground/30 text-xs uppercase tracking-widest font-medium mb-4">
-                      Call or Text
-                    </p>
-                    <a
-                      href="tel:+61404878087"
-                      className="heading-serif text-[2rem] md:text-[2.5rem] text-foreground no-underline transition-colors duration-300 hover:text-brand-green block"
-                    >
-                      +61 404 878 087
-                    </a>
-                  </div>
-                  <div>
-                    <p className="text-foreground/30 text-xs uppercase tracking-widest font-medium mb-4">
                       Email
                     </p>
                     <a
@@ -100,7 +89,7 @@ export default function ContactPage() {
                 step: "01",
                 title: "Initial Contact",
                 description:
-                  "Reach out via phone, email, or our form with details about your situation.",
+                  "Reach out via live chat, email, or our form with details about your situation.",
               },
               {
                 step: "02",
@@ -195,18 +184,12 @@ export default function ContactPage() {
               </h2>
               <p className="text-foreground/35 text-base max-w-lg mb-14 leading-relaxed">
                 We offer same-day emergency service for critical business issues
-                that can&apos;t wait. Call or text us directly.
+                that can&apos;t wait. Reach out via email or live chat.
               </p>
               <div className="flex gap-5 flex-wrap">
                 <a
-                  href="tel:+61404878087"
-                  className="bg-brand-green text-white px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-brand-green-dark hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(39,170,39,0.25)]"
-                >
-                  Call Now
-                </a>
-                <a
                   href="mailto:hello@wkends.com"
-                  className="text-foreground/50 font-medium text-sm border-b border-foreground/20 pb-0.5 transition-all duration-500 hover:text-foreground hover:border-foreground/60"
+                  className="bg-brand-green text-white px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-brand-green-dark hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(39,170,39,0.25)]"
                 >
                   Email Us
                 </a>

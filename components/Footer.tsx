@@ -27,7 +27,6 @@ export default function Footer() {
           <div>
             <p className="text-xs font-medium uppercase tracking-widest text-white/50 mb-5">Contact</p>
             <ul className="space-y-3">
-              <li><a href="tel:+61404878087" className="text-white/80 no-underline text-sm hover:text-white transition-colors">+61 404 878 087</a></li>
               <li><a href="mailto:hello@wkends.com" className="text-white/80 no-underline text-sm hover:text-white transition-colors">hello@wkends.com</a></li>
             </ul>
           </div>

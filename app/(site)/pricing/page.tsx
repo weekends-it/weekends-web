@@ -379,12 +379,6 @@ export default function PricingPage() {
                 >
                   Get an Estimate
                 </Link>
-                <a
-                  href="tel:+61404878087"
-                  className="text-foreground/50 font-medium text-sm border-b border-foreground/20 pb-0.5 transition-all duration-500 hover:text-foreground hover:border-foreground/60"
-                >
-                  Call +61 404 878 087
-                </a>
               </div>
             </div>
           </ScrollReveal>

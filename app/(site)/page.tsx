@@ -554,12 +554,6 @@ export default function HomePage() {
               </p>
               <div className="flex gap-5 flex-wrap mb-16">
                 <a
-                  href="tel:+61404878087"
-                  className="bg-brand-green text-white px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-brand-green-dark hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(39,170,39,0.25)]"
-                >
-                  Call +61 404 878 087
-                </a>
-                <a
                   href="mailto:hello@wkends.com"
                   className="text-foreground/50 font-medium text-sm border-b border-foreground/20 pb-0.5 transition-all duration-500 hover:text-foreground hover:border-foreground/60"
                 >
