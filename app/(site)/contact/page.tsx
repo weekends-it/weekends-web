@@ -139,10 +139,6 @@ export default function ContactPage() {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal delay={60}>
-            <div className="rounded-2xl border border-foreground/8 h-[35vh] min-h-[250px] mb-16 md:mb-20" style={{ backgroundImage: "url('/images/wkends-21.jpg')", backgroundSize: "cover", backgroundPosition: "center" }} />
-          </ScrollReveal>
-
           <div className="grid md:grid-cols-3 gap-4">
             {[
               {
