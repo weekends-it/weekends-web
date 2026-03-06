@@ -30,6 +30,7 @@ export async function POST(req: NextRequest) {
     maxTotal,
     complexity,
     reasoning,
+    preferredDate,
   } = await req.json();
 
   if (!name || !email || !issue) {
@@ -37,7 +38,7 @@ export async function POST(req: NextRequest) {
   }
 
   const priorityLabel =
-    priority === "emergency" ? "Emergency" : priority === "urgent" ? "Urgent" : "Normal";
+    priority === "emergency" ? "Emergency" : priority === "remote" ? "Remote" : "Break/Fix";
 
   const resend = new Resend(resendKey);
 
@@ -59,6 +60,7 @@ export async function POST(req: NextRequest) {
           <tr><td style="padding:8px 0;color:#6b7280;font-size:13px">Address</td><td style="padding:8px 0;font-size:14px">${resolvedAddress}</td></tr>
           <tr><td style="padding:8px 0;color:#6b7280;font-size:13px">Travel</td><td style="padding:8px 0;font-size:14px">${travelDistanceKm} km · ~${travelTimeMinutes} min · $${travelCost}</td></tr>
           ${discounts ? `<tr><td style="padding:8px 0;color:#6b7280;font-size:13px">Discounts</td><td style="padding:8px 0;font-size:14px;color:#27aa27">${discounts}</td></tr>` : ""}
+          ${preferredDate ? `<tr><td style="padding:8px 0;color:#6b7280;font-size:13px">Preferred time</td><td style="padding:8px 0;font-size:14px;color:#27aa27;font-weight:600">${preferredDate}</td></tr>` : ""}
         </table>
 
         <div style="background:white;border:1px solid #e5e7eb;border-radius:8px;padding:16px 20px;margin-bottom:24px">
@@ -112,6 +114,7 @@ export async function POST(req: NextRequest) {
             <tr><td style="padding:6px 0;color:#6b7280;font-size:13px">Address</td><td style="padding:6px 0;font-size:13px">${resolvedAddress}</td></tr>
             <tr><td style="padding:6px 0;color:#6b7280;font-size:13px">Priority</td><td style="padding:6px 0;font-size:13px;font-weight:600">${priorityLabel}</td></tr>
             ${discounts ? `<tr><td style="padding:6px 0;color:#6b7280;font-size:13px">Discounts</td><td style="padding:6px 0;font-size:13px;color:#27aa27">${discounts} — confirmed on booking</td></tr>` : ""}
+            ${preferredDate ? `<tr><td style="padding:6px 0;color:#6b7280;font-size:13px">Preferred time</td><td style="padding:6px 0;font-size:13px;font-weight:600">${preferredDate}</td></tr>` : ""}
           </table>
         </div>
 

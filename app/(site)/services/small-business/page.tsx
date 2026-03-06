@@ -18,7 +18,10 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Small Business IT - Weekends IT",
+  title: "Small Business IT Support Brisbane",
+  description:
+    "Weekend IT support for Brisbane small businesses. Break/fix repairs, managed IT, network setup, and more — without disrupting your business hours.",
+  openGraph: { title: "Small Business IT Support Brisbane | Weekends IT", url: "/services/small-business" },
 };
 
 export default function SmallBusinessPage() {

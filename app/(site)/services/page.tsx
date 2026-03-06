@@ -15,7 +15,10 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Services - Weekends IT",
+  title: "IT Services",
+  description:
+    "Weekend IT services for homes, families, seniors, and small businesses across Brisbane. On-site and remote support, managed IT, procurement, security, and more.",
+  openGraph: { title: "IT Services | Weekends IT", url: "/services" },
 };
 
 const services = [

@@ -18,9 +18,18 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Weekends IT - Your IT Problems Don't Wait for Monday",
+  metadataBase: new URL("https://wkends.com"),
+  title: {
+    default: "Weekends IT — Weekend IT Support Brisbane",
+    template: "%s | Weekends IT",
+  },
   description:
-    "Weekend IT support for small businesses and families. Flexible options from pay-as-you-go service to ongoing MSP support.",
+    "Weekend IT support for Brisbane homes and small businesses. Available Friday night through Sunday — no waiting until Monday. Covering Gympie to the Gold Coast.",
+  openGraph: {
+    siteName: "Weekends IT",
+    locale: "en_AU",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -29,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en-AU" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{

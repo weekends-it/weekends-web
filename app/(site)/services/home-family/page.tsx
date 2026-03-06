@@ -17,7 +17,10 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Home & Family - Weekends IT",
+  title: "Home & Family IT Support Brisbane",
+  description:
+    "Weekend IT support for Brisbane homes. Computer repairs, home network setup, smart devices, printers, and more — available when your family is actually home.",
+  openGraph: { title: "Home & Family IT Support Brisbane | Weekends IT", url: "/services/home-family" },
 };
 
 export default function HomeFamilyPage() {

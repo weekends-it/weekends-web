@@ -18,7 +18,10 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Remote Support - Weekends IT",
+  title: "Remote IT Support",
+  description:
+    "Remote IT support from $70/hr — available anywhere in Australia. Get help fast without waiting for a site visit. Friday nights, Saturdays, and Sundays.",
+  openGraph: { title: "Remote IT Support | Weekends IT", url: "/services/remote-support" },
 };
 
 export default function RemoteSupportPage() {

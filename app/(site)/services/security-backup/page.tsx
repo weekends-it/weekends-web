@@ -17,7 +17,10 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Security & Backup - Weekends IT",
+  title: "Cybersecurity & Backup Solutions Brisbane",
+  description:
+    "Protect your Brisbane home or business with antivirus, firewall setup, data backup, and security audits. Weekend availability for urgent security issues.",
+  openGraph: { title: "Cybersecurity & Backup Solutions Brisbane | Weekends IT", url: "/services/security-backup" },
 };
 
 export default function SecurityBackupPage() {

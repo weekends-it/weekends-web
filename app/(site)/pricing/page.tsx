@@ -4,7 +4,10 @@ import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
-  title: "Pricing - Weekends IT",
+  title: "Pricing",
+  description:
+    "Transparent weekend IT support rates. Remote support from $70/hr, break/fix from $85/hr, emergency call-outs from $150/hr. Managed IT from $499/mo per 5 users.",
+  openGraph: { title: "Pricing | Weekends IT", url: "/pricing" },
 };
 
 export default function PricingPage() {

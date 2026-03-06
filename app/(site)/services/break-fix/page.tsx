@@ -15,7 +15,10 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Break/Fix Support - Weekends IT",
+  title: "Break/Fix IT Repairs Brisbane",
+  description:
+    "Pay-as-you-go IT repairs in Brisbane from $85/hr. No contracts, no call-out fees. Available Friday night through Sunday, covering Gympie to the Gold Coast.",
+  openGraph: { title: "Break/Fix IT Repairs Brisbane | Weekends IT", url: "/services/break-fix" },
 };
 
 export default function BreakFixPage() {

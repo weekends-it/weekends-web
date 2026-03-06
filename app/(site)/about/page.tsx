@@ -5,7 +5,10 @@ import PageHero from "@/components/PageHero";
 import ImageCarousel from "@/components/ImageCarousel";
 
 export const metadata: Metadata = {
-  title: "About - Weekends IT",
+  title: "About Us",
+  description:
+    "Weekends IT is Brisbane's weekend IT support service — available when others aren't. We show up Friday nights, Saturdays, and Sundays so you're never left waiting until Monday.",
+  openGraph: { title: "About Us | Weekends IT", url: "/about" },
 };
 
 export default function AboutPage() {

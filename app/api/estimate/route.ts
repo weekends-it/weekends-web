@@ -3,8 +3,9 @@ import { NextRequest, NextResponse } from "next/server";
 const BANYO_LNG = 153.0686;
 const BANYO_LAT = -27.3833;
 
+const REMOTE_RATE = 70;
 const NORMAL_RATE = 85;
-const PRIORITY_RATE = 150;
+const EMERGENCY_RATE = 150;
 const TRAVEL_RATE_PER_KM = 0.55;
 
 export async function POST(req: NextRequest) {
@@ -143,8 +144,8 @@ Return only this JSON, no other text:
     }
 
     // 4. Calculate pricing
-    const rate = priority === "normal" || priority === "low" ? NORMAL_RATE : PRIORITY_RATE;
-    const travelCost = Math.round(distanceKm * TRAVEL_RATE_PER_KM * 100) / 100;
+    const rate = priority === "remote" ? REMOTE_RATE : priority === "normal" ? NORMAL_RATE : EMERGENCY_RATE;
+    const travelCost = priority === "remote" ? 0 : Math.round(distanceKm * TRAVEL_RATE_PER_KM * 100) / 100;
     const minLabour = Math.round(estimate.minHours * rate);
     const maxLabour = Math.round(estimate.maxHours * rate);
 

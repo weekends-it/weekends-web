@@ -18,7 +18,10 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Managed IT Services - Weekends IT",
+  title: "Managed IT Services Brisbane",
+  description:
+    "Proactive managed IT for Brisbane businesses from $499/mo per 5 users. Includes monitoring, maintenance, help desk support, and weekend availability.",
+  openGraph: { title: "Managed IT Services Brisbane | Weekends IT", url: "/services/managed-it" },
 };
 
 export default function ManagedITPage() {

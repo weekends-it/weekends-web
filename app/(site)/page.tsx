@@ -26,7 +26,15 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Weekends IT - Your IT Problems Don't Wait for Monday",
+  title: { absolute: "Weekends IT — Weekend IT Support Brisbane" },
+  description:
+    "On-site IT support available Friday 6pm–2am, Saturday & Sunday 4am–2am. Break/fix from $85/hr, remote support from $70/hr. Covering Gympie to the Gold Coast.",
+  openGraph: {
+    title: "Weekends IT — Weekend IT Support Brisbane",
+    description:
+      "On-site IT support available Friday 6pm–2am, Saturday & Sunday 4am–2am. Break/fix from $85/hr, remote support from $70/hr. Covering Gympie to the Gold Coast.",
+    url: "/",
+  },
 };
 
 export default function HomePage() {

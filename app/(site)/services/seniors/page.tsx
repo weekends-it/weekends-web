@@ -17,7 +17,10 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Seniors Tech Support - Weekends IT",
+  title: "Tech Support for Seniors Brisbane",
+  description:
+    "Patient, friendly technology help for Brisbane seniors. We explain everything clearly, move at your pace, and never make you feel bad for asking questions.",
+  openGraph: { title: "Tech Support for Seniors Brisbane | Weekends IT", url: "/services/seniors" },
 };
 
 export default function SeniorsPage() {

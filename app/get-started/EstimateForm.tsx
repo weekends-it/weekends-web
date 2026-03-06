@@ -5,7 +5,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 const QLD_BBOX = "137.99,-29.18,153.55,-10.68";
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN ?? "";
 
-type Priority = "normal" | "urgent" | "emergency";
+type Priority = "remote" | "normal" | "emergency";
 type StepKey =
   | "name"
   | "company"
@@ -40,8 +40,8 @@ const PRIORITY_OPTIONS: {
   rate: string;
   desc: string;
 }[] = [
-  { value: "normal", label: "Normal", rate: "$85/hr", desc: "Next available" },
-  { value: "urgent", label: "Urgent", rate: "$150/hr", desc: "Priority scheduling" },
+  { value: "remote", label: "Remote", rate: "$70/hr", desc: "Anywhere in Australia" },
+  { value: "normal", label: "Break/Fix", rate: "$85/hr", desc: "Next available slot" },
   { value: "emergency", label: "Emergency", rate: "$150/hr", desc: "Same-day guaranteed" },
 ];
 
@@ -52,6 +52,63 @@ const DISCOUNT_OPTIONS = [
 ];
 
 const FORM_STEPS: StepKey[] = ["name", "company", "address", "issue", "priority", "discounts"];
+
+// ── Calendar helpers ────────────────────────────────────────────────────────
+
+type DateOption = { key: string; label: string; sublabel: string; dayOfWeek: number };
+type TimeSlot   = { startHour: number; display: string; endDisplay: string };
+
+function makeDateKey(d: Date): string {
+  return [
+    String(d.getDate()).padStart(2, "0"),
+    String(d.getMonth() + 1).padStart(2, "0"),
+    d.getFullYear(),
+  ].join("-"); // DD-MM-YYYY
+}
+
+function getUpcomingDates(): DateOption[] {
+  const out: DateOption[] = [];
+  const now = new Date();
+  for (let i = 0; i <= 42 && out.length < 8; i++) {
+    const d = new Date(now);
+    d.setDate(now.getDate() + i);
+    const day = d.getDay(); // 0=Sun, 5=Fri, 6=Sat
+    if (day === 0 || day === 5 || day === 6) {
+      out.push({
+        key: makeDateKey(d),
+        label: d.toLocaleDateString("en-AU", { weekday: "short" }),
+        sublabel: d.toLocaleDateString("en-AU", { day: "numeric", month: "short" }),
+        dayOfWeek: day,
+      });
+    }
+  }
+  return out;
+}
+
+function formatHour(h: number): string {
+  const totalMins = Math.round(h * 60);
+  const dayMins = ((totalMins % 1440) + 1440) % 1440;
+  const hours = Math.floor(dayMins / 60);
+  const mins = dayMins % 60;
+  const period = hours < 12 ? "AM" : "PM";
+  const displayHr = hours === 0 ? 12 : hours > 12 ? hours - 12 : hours;
+  return `${displayHr}:${String(mins).padStart(2, "0")} ${period}`;
+}
+
+// slotDurationMins = travelTimeMinutes*2 + maxHours*60 + 15 min buffer
+function getTimeSlots(dayOfWeek: number, dateKey: string, slotDurationMins: number): TimeSlot[] {
+  const windowStart = dayOfWeek === 5 ? 18 : 4; // Fri 6pm, Sat/Sun 4am
+  const windowEnd   = 26;                        // 2am next day = hour 26
+  const todayKey    = makeDateKey(new Date());
+  const currentHour = new Date().getHours();
+
+  const slots: TimeSlot[] = [];
+  for (let h = windowStart; h + slotDurationMins / 60 <= windowEnd; h++) {
+    if (dateKey === todayKey && h <= currentHour + 1) continue; // skip past slots
+    slots.push({ startHour: h, display: formatHour(h), endDisplay: formatHour(h + slotDurationMins / 60) });
+  }
+  return slots;
+}
 
 export default function EstimateForm() {
   const [step, setStep] = useState<StepKey>("name");
@@ -69,6 +126,8 @@ export default function EstimateForm() {
 
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedTime, setSelectedTime] = useState("");
 
   const [nameVal, setNameVal] = useState("");
   const [companyVal, setCompanyVal] = useState("");
@@ -186,6 +245,7 @@ export default function EstimateForm() {
         discounts: discounts.length > 0
           ? discounts.map((id) => DISCOUNT_OPTIONS.find((d) => d.id === id)?.label).filter(Boolean).join(", ")
           : undefined,
+        preferredDate: selectedDate ? `${selectedDate} at ${selectedTime}` : undefined,
         ...result,
       }),
     }).catch((err) => console.error("Booking email error:", err));
@@ -200,6 +260,7 @@ export default function EstimateForm() {
       setPriority("normal"); setDiscounts([]); setResult(null); setErrorMsg("");
       setNameVal(""); setCompanyVal(""); setAddressVal(""); setIssueVal("");
       setEmailVal(""); setPhoneVal("");
+      setSelectedDate(""); setSelectedTime("");
       setVisible(true);
     }, 220);
   }
@@ -398,29 +459,104 @@ export default function EstimateForm() {
         </div>
       )}
       {step === "contact" && (
-        <StepShell question="Almost done. How can we reach you?" hint="We'll confirm your booking and send a summary.">
-          <div className="space-y-6">
-            <input
-              autoFocus
-              type="email"
-              value={emailVal}
-              onChange={(e) => setEmailVal(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && submitContact()}
-              placeholder="your@email.com"
-              className={inputClass}
-            />
-            <input
-              type="tel"
-              value={phoneVal}
-              onChange={(e) => setPhoneVal(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && submitContact()}
-              placeholder="Phone (optional)"
-              className={inputClass}
-            />
-          </div>
+        <StepShell question="Book your appointment." hint="Choose a time, then leave your details.">
+          {(() => {
+            const dates = getUpcomingDates();
+            const selected = dates.find((d) => d.key === selectedDate);
+            const slotDurationMins = result
+              ? Math.ceil(result.travelTimeMinutes * 2 + (result.minHours + 0.5) * 60)
+              : 120;
+
+            return (
+              <>
+                {/* ── Date picker ── */}
+                <div className="mb-6">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-3">
+                    Select a date
+                  </p>
+                  <div className="flex gap-2 flex-wrap">
+                    {dates.map(({ key, label, sublabel }) => (
+                      <button
+                        key={key}
+                        onClick={() => { setSelectedDate(key); setSelectedTime(""); }}
+                        className={`px-4 py-3 rounded-xl border text-left transition-all cursor-pointer ${
+                          selectedDate === key
+                            ? "border-white bg-white/20 text-white"
+                            : "border-white/20 bg-white/8 text-white/60 hover:border-white/40 hover:text-white/80"
+                        }`}
+                      >
+                        <p className="text-xs font-semibold uppercase tracking-widest">{label}</p>
+                        <p className="text-sm">{sublabel}</p>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* ── Time slots ── */}
+                {selectedDate && selected && (() => {
+                  const slots = getTimeSlots(selected.dayOfWeek, selectedDate, slotDurationMins);
+                  return (
+                    <div className="mb-6">
+                      <p className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-3">
+                        Select a time
+                        <span className="ml-2 normal-case font-normal text-white/30">
+                          (~{Math.round((slotDurationMins / 60) * 10) / 10}h slot)
+                        </span>
+                      </p>
+                      {slots.length === 0 ? (
+                        <p className="text-white/40 text-sm">No slots available for this day — try another date.</p>
+                      ) : (
+                        <div className="flex flex-wrap gap-2">
+                          {slots.map(({ startHour, display, endDisplay }) => (
+                            <button
+                              key={startHour}
+                              onClick={() => setSelectedTime(display)}
+                              className={`px-4 py-2 rounded-full border text-sm font-medium transition-all cursor-pointer ${
+                                selectedTime === display
+                                  ? "border-white bg-white/20 text-white"
+                                  : "border-white/20 bg-white/8 text-white/60 hover:border-white/40 hover:text-white/80"
+                              }`}
+                            >
+                              {display}
+                              <span className="text-white/30 text-xs ml-1">→ ~{endDisplay}</span>
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })()}
+
+                {/* ── Divider ── */}
+                <div className="border-t border-white/10 my-6" />
+                <p className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-6">Your details</p>
+
+                {/* ── Contact fields ── */}
+                <div className="space-y-6">
+                  <input
+                    autoFocus
+                    type="email"
+                    value={emailVal}
+                    onChange={(e) => setEmailVal(e.target.value)}
+                    onKeyDown={(e) => e.key === "Enter" && submitContact()}
+                    placeholder="your@email.com"
+                    className={inputClass}
+                  />
+                  <input
+                    type="tel"
+                    value={phoneVal}
+                    onChange={(e) => setPhoneVal(e.target.value)}
+                    onKeyDown={(e) => e.key === "Enter" && submitContact()}
+                    placeholder="Phone (optional)"
+                    className={inputClass}
+                  />
+                </div>
+              </>
+            );
+          })()}
           <div className="flex items-center justify-between mt-14">
             <BackBtn onClick={() => go("result", "backward")} />
-            <NextBtn onClick={submitContact} disabled={!emailVal.trim()} label="Confirm Booking" />
+            <NextBtn onClick={submitContact} disabled={!emailVal.trim() || !selectedDate || !selectedTime} label="Confirm Booking" />
           </div>
         </StepShell>
       )}
@@ -532,18 +668,26 @@ function ResultDisplay({
   onEdit: () => void;
   onBook: () => void;
 }) {
-  const priorityLabel = priority === "normal" ? "Normal" : priority === "urgent" ? "Urgent" : "Emergency";
+  const priorityLabel = priority === "remote" ? "Remote" : priority === "normal" ? "Break/Fix" : "Emergency";
   const priorityBadgeStyle =
-    priority === "normal"
+    priority === "remote"
+      ? { backgroundColor: '#dbeafe', color: '#1e40af', border: '1px solid #bfdbfe' }
+      : priority === "normal"
       ? { backgroundColor: '#dcfce7', color: '#166534', border: '1px solid #bbf7d0' }
-      : priority === "urgent"
-      ? { backgroundColor: '#fef9c3', color: '#854d0e', border: '1px solid #fde047' }
       : { backgroundColor: '#fee2e2', color: '#991b1b', border: '1px solid #fca5a5' };
   const complexityColor =
     result.complexity === "simple" ? '#16a34a'
     : result.complexity === "moderate" ? '#d97706'
     : '#dc2626';
   const discountLabels = discounts.map((id) => DISCOUNT_OPTIONS.find((d) => d.id === id)?.label).filter(Boolean);
+  const seniorDiscount = discounts.includes("seniors");
+  const discountedMinLabour = seniorDiscount ? Math.round(result.minLabour * 0.8) : result.minLabour;
+  const discountedMaxLabour = seniorDiscount ? Math.round(result.maxLabour * 0.8) : result.maxLabour;
+  const discountedMinTotal = Math.round(discountedMinLabour + result.travelCost);
+  const discountedMaxTotal = Math.round(discountedMaxLabour + result.travelCost);
+  const labourSavingMin = result.minLabour - discountedMinLabour;
+  const labourSavingMax = result.maxLabour - discountedMaxLabour;
+  const otherDiscountLabels = discountLabels.filter((l) => l !== "Senior (65+)");
 
   return (
     <div>
@@ -573,13 +717,18 @@ function ResultDisplay({
           <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: '#9ca3af', marginBottom: '0.75rem' }}>Estimated total</p>
           <div style={{ display: 'flex', alignItems: 'flex-end', gap: '0.75rem', flexWrap: 'wrap' }}>
             <p className="heading-serif" style={{ fontSize: 'clamp(3rem, 9vw, 5.5rem)', color: '#111', lineHeight: 1 }}>
-              ${Math.round(result.minTotal).toLocaleString()}
+              ${discountedMinTotal.toLocaleString()}
             </p>
             <p className="heading-serif" style={{ fontSize: 'clamp(1.6rem, 4vw, 2.8rem)', color: '#9ca3af', lineHeight: 1, paddingBottom: '0.25rem' }}>
-              – ${Math.round(result.maxTotal).toLocaleString()}
+              – ${discountedMaxTotal.toLocaleString()}
             </p>
           </div>
-          <p className="text-xs" style={{ color: '#9ca3af', marginTop: '0.75rem' }}>
+          {seniorDiscount && (
+            <p className="text-xs font-medium" style={{ color: '#16a34a', marginTop: '0.5rem' }}>
+              20% senior discount applied — saving ${labourSavingMin}–${labourSavingMax}
+            </p>
+          )}
+          <p className="text-xs" style={{ color: '#9ca3af', marginTop: '0.5rem' }}>
             Conservative estimate · final price confirmed before work begins
           </p>
         </div>
@@ -592,9 +741,17 @@ function ResultDisplay({
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '1.25rem', borderBottom: '1px solid #f3f4f6' }}>
             <div>
               <p className="font-medium" style={{ color: '#111' }}>Labour</p>
-              <p className="text-sm" style={{ color: '#6b7280', marginTop: '0.25rem' }}>{result.minHours}–{result.maxHours} hrs @ ${result.rate}/hr</p>
+              <p className="text-sm" style={{ color: '#6b7280', marginTop: '0.25rem' }}>
+                {result.minHours}–{result.maxHours} hrs @ ${result.rate}/hr
+                {seniorDiscount && <span style={{ color: '#16a34a' }}> · 20% off</span>}
+              </p>
             </div>
-            <p className="font-semibold font-sans" style={{ color: '#111' }}>${result.minLabour} – ${result.maxLabour}</p>
+            <div style={{ textAlign: 'right' }}>
+              {seniorDiscount && (
+                <p className="text-sm font-sans" style={{ color: '#9ca3af', textDecoration: 'line-through' }}>${result.minLabour} – ${result.maxLabour}</p>
+              )}
+              <p className="font-semibold font-sans" style={{ color: '#111' }}>${discountedMinLabour} – ${discountedMaxLabour}</p>
+            </div>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '1.25rem' }}>
             <div>
@@ -604,11 +761,11 @@ function ResultDisplay({
             <p className="font-semibold font-sans" style={{ color: '#111' }}>${result.travelCost.toFixed(2)}</p>
           </div>
 
-          {discountLabels.length > 0 && (
+          {otherDiscountLabels.length > 0 && (
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid #f3f4f6' }}>
               <span className="text-sm" style={{ color: '#16a34a' }}>&#10003;</span>
               <p className="text-sm" style={{ color: '#16a34a' }}>
-                {discountLabels.join(", ")} discount noted — confirmed on booking
+                {otherDiscountLabels.join(", ")} discount noted — confirmed on booking
               </p>
             </div>
           )}

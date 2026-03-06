@@ -5,7 +5,10 @@ import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
-  title: "Contact - Weekends IT",
+  title: "Contact",
+  description:
+    "Get in touch with Weekends IT. Available Friday 6pm–2am, Saturday & Sunday 4am–2am. On-site IT support across Brisbane from Gympie to the Gold Coast.",
+  openGraph: { title: "Contact | Weekends IT", url: "/contact" },
 };
 
 export default function ContactPage() {

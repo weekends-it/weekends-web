@@ -16,7 +16,10 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Retail Solutions - Weekends IT",
+  title: "Retail IT Support Brisbane",
+  description:
+    "IT support for Brisbane retail businesses. POS systems, EFTPOS, payment terminals, network setup, and weekend availability when you need it most.",
+  openGraph: { title: "Retail IT Support Brisbane | Weekends IT", url: "/services/retail" },
 };
 
 export default function RetailPage() {

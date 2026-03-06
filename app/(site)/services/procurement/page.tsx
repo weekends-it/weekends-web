@@ -22,7 +22,10 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "IT Procurement & Purchasing - Weekends IT",
+  title: "IT Equipment Procurement Brisbane",
+  description:
+    "Source laptops, networking gear, servers, and more through Weekends IT. Better-than-retail pricing via our wholesale distributor network. Brisbane & beyond.",
+  openGraph: { title: "IT Equipment Procurement Brisbane | Weekends IT", url: "/services/procurement" },
 };
 
 export default function ProcurementPage() {
