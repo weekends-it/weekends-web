@@ -134,9 +134,8 @@ export default function ProcurementPage() {
                 Wholesale pricing + expert guidance.
               </h2>
               <p className="text-foreground/35 text-sm max-w-lg leading-relaxed">
-                We leverage our partnerships with major IT manufacturers and
-                distributors to get you wholesale pricing on the equipment you
-                need. We help you choose the right products, handle procurement,
+                We leverage our wholesale distributor network to get you
+                better-than-retail pricing on the equipment you need. We help you choose the right products, handle procurement,
                 and set everything up.
               </p>
             </div>
