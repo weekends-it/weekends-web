@@ -259,7 +259,7 @@ export default function EstimateForm() {
       )}
 
       {step === "address" && (
-        <StepShell question="What address will we be coming to?" hint="We'll use this to calculate travel from Banyo.">
+        <StepShell question="What address will we be coming to?" hint="We'll use this to calculate travel time and any call-out costs.">
           <div ref={addressWrapRef} className="relative" style={{ zIndex: 10 }}>
             <input
               autoFocus
@@ -374,7 +374,7 @@ export default function EstimateForm() {
             </div>
             <div className="text-center">
               <p className="text-white font-medium" style={{ marginBottom: '0.35rem' }}>Calculating your estimate</p>
-              <p className="text-sm" style={{ color: 'rgba(255,255,255,0.45)' }}>Checking travel from Banyo and analysing your issue…</p>
+              <p className="text-sm" style={{ color: 'rgba(255,255,255,0.45)' }}>Calculating travel and analysing your issue…</p>
             </div>
           </div>
         </div>
@@ -599,7 +599,7 @@ function ResultDisplay({
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '1.25rem' }}>
             <div>
               <p className="font-medium" style={{ color: '#111' }}>Travel</p>
-              <p className="text-sm" style={{ color: '#6b7280', marginTop: '0.25rem' }}>{result.travelDistanceKm} km · ~{result.travelTimeMinutes} min from Banyo</p>
+              <p className="text-sm" style={{ color: '#6b7280', marginTop: '0.25rem' }}>{result.travelDistanceKm} km · ~{result.travelTimeMinutes} min travel</p>
             </div>
             <p className="font-semibold font-sans" style={{ color: '#111' }}>${result.travelCost.toFixed(2)}</p>
           </div>

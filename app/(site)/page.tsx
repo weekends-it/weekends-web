@@ -604,8 +604,7 @@ export default function HomePage() {
                   Fri 6pm–2am &nbsp;·&nbsp; Sat–Sun 4am–2am
                 </p>
                 <p>
-                  <span className="text-foreground/55">Serving:</span> Greater
-                  Metro Area
+                  <span className="text-foreground/55">Serving:</span> Gympie to Gold Coast, Brisbane
                 </p>
               </div>
             </div>

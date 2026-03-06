@@ -146,12 +146,12 @@ export default function ContactPage() {
           <div className="grid md:grid-cols-3 gap-4">
             {[
               {
-                title: "Primary Service Area",
-                body: "Greater Metro Area and surrounding communities within 25 miles.",
+                title: "Service Area",
+                body: "Based in Brisbane, Australia. We provide on-site support from Gympie to the Gold Coast.",
               },
               {
                 title: "Extended Service",
-                body: "We can often accommodate locations outside our primary area. Contact us to discuss.",
+                body: "Outside our standard area? Get in touch — we can often accommodate locations beyond our usual range.",
               },
               {
                 title: "Remote Support",
