@@ -45,7 +45,7 @@ export default function Footer() {
           <span>&copy; 2026 Weekends IT. All rights reserved.</span>
           <div className="flex items-center gap-5">
             <a
-              href="https://www.instagram.com/weekends-it"
+              href="https://www.instagram.com/weekendsit/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Weekends IT on Instagram"
@@ -56,7 +56,7 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="https://www.facebook.com/weekends-it"
+              href="https://www.facebook.com/people/Weekends-It/61585016303512/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Weekends IT on Facebook"
