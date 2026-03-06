@@ -525,7 +525,7 @@ export default function ProcurementPage() {
               },
               {
                 q: "How long does procurement take?",
-                a: "Most items ship within 1–3 business days. Custom-configured servers or specialized equipment may take 1–2 weeks. We'll give you a timeline upfront.",
+                a: "Most items ship within 1–3 business days. Custom-configured servers or specialised equipment may take 1–2 weeks. We'll give you a timeline upfront.",
               },
             ].map(({ q, a }, i) => (
               <ScrollReveal key={q} delay={i * 60}>

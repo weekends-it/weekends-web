@@ -175,7 +175,7 @@ export default function ServicesPage() {
               {
                 title: "For Home & Family",
                 items: [
-                  "Computer repair and optimization",
+                  "Computer repair and optimisation",
                   "Virus and malware removal",
                   "Home network setup and troubleshooting",
                   "Smart home device configuration",

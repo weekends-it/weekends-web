@@ -203,7 +203,7 @@ export default function SmallBusinessPage() {
                 icon: Network,
                 title: "Network & Infrastructure",
                 description:
-                  "Setup, optimization, and ongoing management of your business network. WiFi, servers, security, and everything in between.",
+                  "Setup, optimisation, and ongoing management of your business network. WiFi, servers, security, and everything in between.",
               },
               {
                 icon: Wrench,
@@ -345,12 +345,12 @@ export default function SmallBusinessPage() {
               <div className="h-full bg-foreground/3 border border-foreground/8 rounded-2xl p-8 md:p-10 flex flex-col">
                 <p className="label-section mb-6">Custom Enterprise</p>
                 <p className="text-foreground/35 text-sm leading-relaxed mb-8 flex-1">
-                  For larger organizations or specialized compliance and security
+                  For larger organisations or specialised compliance and security
                   needs.
                 </p>
                 <ul className="space-y-0 mb-10">
                   {[
-                    "Customized support plans",
+                    "Customised support plans",
                     "Dedicated account management",
                     "Advanced security and compliance",
                     "24/7 monitoring and support",

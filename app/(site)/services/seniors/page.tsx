@@ -129,7 +129,7 @@ export default function SeniorsPage() {
                 We take our time and explain everything clearly.
               </h2>
               <p className="text-foreground/35 text-sm max-w-lg leading-relaxed">
-                We specialize in helping seniors feel confident with their
+                We specialise in helping seniors feel confident with their
                 technology. We speak clearly, move at your pace, and never make
                 you feel bad for asking questions. That&apos;s literally what
                 we&apos;re here for.

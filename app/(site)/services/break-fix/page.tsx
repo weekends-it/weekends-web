@@ -200,7 +200,7 @@ export default function BreakFixPage() {
                 icon: Network,
                 title: "Network Problems",
                 description:
-                  "WiFi issues, connection problems, router setup, and network optimization.",
+                  "WiFi issues, connection problems, router setup, and network optimisation.",
               },
               {
                 icon: Settings,

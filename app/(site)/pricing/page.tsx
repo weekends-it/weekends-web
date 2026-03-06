@@ -365,7 +365,7 @@ export default function PricingPage() {
                     },
                     {
                       q: "What if you can't fix the problem?",
-                      a: "You only pay for diagnostic time, and we'll recommend the best path forward — whether that's specialized support or hardware replacement.",
+                      a: "You only pay for diagnostic time, and we'll recommend the best path forward — whether that's specialised support or hardware replacement.",
                     },
                     {
                       q: "Can I switch from hourly to MSP later?",
@@ -373,7 +373,7 @@ export default function PricingPage() {
                     },
                     {
                       q: "What's included in MSP contracts?",
-                      a: "MSP agreements include ongoing monitoring, maintenance, help desk support, and regular check-ins. We'll customize a plan based on your specific needs.",
+                      a: "MSP agreements include ongoing monitoring, maintenance, help desk support, and regular check-ins. We'll customise a plan based on your specific needs.",
                     },
                   ].map(({ q, a }) => (
                     <div

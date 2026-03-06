@@ -144,7 +144,7 @@ export default function ManagedITPage() {
                 step: "01",
                 title: "Assessment and onboarding",
                 description:
-                  "We assess your current IT infrastructure, understand your business needs, and create a customized management plan.",
+                  "We assess your current IT infrastructure, understand your business needs, and create a customised management plan.",
               },
               {
                 step: "02",
@@ -267,12 +267,12 @@ export default function ManagedITPage() {
               <div className="h-full bg-foreground/3 border border-foreground/8 rounded-2xl p-8 md:p-10 flex flex-col">
                 <p className="label-section mb-6">Custom Enterprise</p>
                 <p className="text-foreground/35 text-sm leading-relaxed mb-8 flex-1">
-                  For larger organizations or specialized compliance and security
+                  For larger organisations or specialised compliance and security
                   needs.
                 </p>
                 <ul className="space-y-0 mb-10">
                   {[
-                    "Customized support plans",
+                    "Customised support plans",
                     "Dedicated account management",
                     "Advanced security and compliance",
                     "24/7 monitoring and support",
@@ -321,7 +321,7 @@ export default function ManagedITPage() {
                 icon: Settings,
                 title: "Regular Maintenance",
                 description:
-                  "System updates, security patches, performance optimization, cleanup and tuning, and preventive care.",
+                  "System updates, security patches, performance optimisation, cleanup and tuning, and preventive care.",
               },
               {
                 icon: Headphones,

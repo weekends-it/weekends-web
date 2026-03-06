@@ -207,7 +207,7 @@ export default function RemoteSupportPage() {
                 icon: Gauge,
                 title: "Performance Issues",
                 description:
-                  "Slow computers, high CPU usage, startup problems, and system optimization.",
+                  "Slow computers, high CPU usage, startup problems, and system optimisation.",
               },
               {
                 icon: Shield,

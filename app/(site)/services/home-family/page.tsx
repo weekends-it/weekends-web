@@ -194,7 +194,7 @@ export default function HomeFamilyPage() {
                 icon: Laptop,
                 title: "Computer Problems",
                 description:
-                  "Slow computers, crashes, error messages, and strange behavior. We diagnose and fix it all.",
+                  "Slow computers, crashes, error messages, and strange behaviour. We diagnose and fix it all.",
               },
               {
                 icon: ShieldAlert,
