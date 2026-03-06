@@ -325,51 +325,25 @@ export default function SeniorsPage() {
                 Special pricing for seniors 65+
               </h2>
               <p className="text-foreground/35 text-sm max-w-md leading-relaxed">
-                15% off all services, free phone support between visits, and no
-                extra charge for the extra time you need.
+                20% off our standard Break/Fix rate, plus free phone support
+                between visits and no extra charge for the extra time you need.
               </p>
             </div>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="max-w-lg">
             <ScrollReveal>
-              <div className="h-full bg-foreground/3 border border-foreground/8 rounded-2xl p-8 md:p-10 flex flex-col">
-                <p className="label-section mb-6">Monthly Support</p>
-                <p className="text-foreground/35 text-base leading-relaxed mb-8 flex-1">
-                  Perfect for ongoing learning and regular help. 2 hours of
-                  support per month with rollover for unused time.
-                </p>
-                <ul className="space-y-0 mb-10">
-                  {[
-                    "2 hours of support per month",
-                    "Phone support anytime",
-                    "Written instructions included",
-                    "Rollover unused time",
-                    "Same technician every visit",
-                  ].map((f) => (
-                    <li
-                      key={f}
-                      className="text-foreground/40 border-t border-foreground/6 py-3 text-base"
-                    >
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/contact"
-                  className="block text-center border border-foreground/15 text-foreground/70 px-6 py-3.5 rounded-full text-sm font-medium transition-all duration-400 hover:bg-brand-green hover:border-brand-green hover:text-white"
-                >
-                  Get in Touch
-                </Link>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal delay={120}>
-              <div className="h-full bg-brand-green rounded-2xl p-8 md:p-10 relative flex flex-col transition-all duration-500 hover:shadow-[0_25px_60px_rgba(39,170,39,0.25)] hover:-translate-y-1">
-                <p className="text-xs font-medium uppercase tracking-widest text-white/60 mb-6">
+              <div className="bg-brand-green rounded-2xl p-8 md:p-10 flex flex-col transition-all duration-500 hover:shadow-[0_25px_60px_rgba(39,170,39,0.25)] hover:-translate-y-1">
+                <p className="text-xs font-medium uppercase tracking-widest text-white/60 mb-8">
                   One-Time Visit
                 </p>
-                <p className="text-white/80 text-base leading-relaxed mb-8 flex-1">
+                <div className="mb-4">
+                  <span className="heading-serif text-[3.5rem] md:text-[4.5rem] text-white">
+                    $68
+                  </span>
+                  <span className="text-white/60 text-sm ml-2">/hr</span>
+                </div>
+                <p className="text-white/80 text-sm leading-relaxed mb-10">
                   Perfect for initial setup, a specific problem, or getting
                   started with a new device. Take all the time you need.
                 </p>
@@ -378,12 +352,12 @@ export default function SeniorsPage() {
                     "No rush — take the time you need",
                     "Written step-by-step guide included",
                     "Follow-up phone support included",
-                    "15% senior discount applied",
+                    "20% senior discount applied",
                     "Background-checked technician",
                   ].map((f) => (
                     <li
                       key={f}
-                      className="text-white/80 border-t border-white/20 py-3 text-base"
+                      className="text-white/80 border-t border-white/20 py-3 text-sm"
                     >
                       {f}
                     </li>

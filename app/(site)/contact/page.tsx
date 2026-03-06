@@ -45,16 +45,16 @@ export default function ContactPage() {
                     </p>
                     <div className="space-y-2 text-sm text-foreground/50">
                       <p>
-                        <span className="text-foreground/70">
-                          Weekend Service:
-                        </span>{" "}
-                        Saturday &amp; Sunday 8am–6pm
+                        <span className="text-foreground/70">Friday:</span>{" "}
+                        6pm–2am
                       </p>
                       <p>
-                        <span className="text-foreground/70">
-                          Office Hours:
-                        </span>{" "}
-                        Monday–Friday 9am–5pm
+                        <span className="text-foreground/70">Saturday:</span>{" "}
+                        4am–2am
+                      </p>
+                      <p>
+                        <span className="text-foreground/70">Sunday:</span>{" "}
+                        4am–2am
                       </p>
                     </div>
                   </div>

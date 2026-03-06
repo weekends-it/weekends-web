@@ -46,7 +46,42 @@ export default function PricingPage() {
           </ScrollReveal>
 
           <ScrollReveal>
-            <div className="grid md:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="bg-foreground/3 border border-foreground/8 rounded-2xl p-8 md:p-10 flex flex-col transition-all duration-500 hover:bg-foreground/6 hover:border-foreground/15">
+                <p className="label-section mb-8">Remote Support</p>
+                <div className="mb-4">
+                  <span className="heading-serif text-[3.5rem] md:text-[4.5rem] text-foreground">
+                    $70
+                  </span>
+                  <span className="text-foreground/30 text-sm ml-2">/hr</span>
+                </div>
+                <p className="text-foreground/35 text-sm leading-relaxed mb-10 flex-1">
+                  Fast help without leaving home.
+                </p>
+                <ul className="space-y-0 mb-10">
+                  {[
+                    "Screen sharing & remote access",
+                    "Software troubleshooting",
+                    "Configuration & setup",
+                    "No call-out fee",
+                    "Weekend availability",
+                  ].map((f) => (
+                    <li
+                      key={f}
+                      className="text-foreground/40 border-t border-foreground/6 py-3 text-sm"
+                    >
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/get-started"
+                  className="block text-center border border-foreground/15 text-foreground/70 px-6 py-3.5 rounded-full text-sm font-medium transition-all duration-400 hover:bg-brand-green hover:border-brand-green hover:text-white"
+                >
+                  Get an Estimate
+                </Link>
+              </div>
+
               <div className="bg-foreground/3 border border-foreground/8 rounded-2xl p-8 md:p-10 flex flex-col transition-all duration-500 hover:bg-foreground/6 hover:border-foreground/15">
                 <p className="label-section mb-8">Break / Fix</p>
                 <div className="mb-4">
@@ -83,48 +118,6 @@ export default function PricingPage() {
                 </Link>
               </div>
 
-              <div className="bg-brand-green rounded-2xl p-8 md:p-10 relative flex flex-col transition-all duration-500 hover:shadow-[0_25px_60px_rgba(39,170,39,0.25)] hover:-translate-y-1">
-                <span className="absolute top-6 right-6 bg-black/20 text-white text-xs font-medium px-3.5 py-1.5 rounded-full backdrop-blur-sm">
-                  Most Popular
-                </span>
-                <p className="text-xs font-medium uppercase tracking-widest text-white/60 mb-8">
-                  Managed IT
-                </p>
-                <div className="mb-4">
-                  <span className="heading-serif text-[3.5rem] md:text-[4.5rem] text-white">
-                    $499
-                  </span>
-                  <span className="text-white/60 text-sm ml-2">/mo</span>
-                </div>
-                <p className="text-white/80 text-sm leading-relaxed mb-10 flex-1">
-                  Ongoing partnership for businesses that need reliable,
-                  proactive IT support.
-                </p>
-                <ul className="space-y-0 mb-10">
-                  {[
-                    "Proactive monitoring & maintenance",
-                    "Priority response times",
-                    "Regular system updates & patches",
-                    "Help desk support for your team",
-                    "Weekend coverage included",
-                    "Quarterly technology reviews",
-                  ].map((f) => (
-                    <li
-                      key={f}
-                      className="text-white/80 border-t border-white/20 py-3 text-sm"
-                    >
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/contact"
-                  className="block text-center bg-white text-brand-green px-6 py-3.5 rounded-full text-sm font-semibold transition-all duration-400 hover:bg-white/90"
-                >
-                  Get Started
-                </Link>
-              </div>
-
               <div className="bg-foreground/3 border border-foreground/8 rounded-2xl p-8 md:p-10 flex flex-col transition-all duration-500 hover:bg-foreground/6 hover:border-foreground/15">
                 <p className="label-section mb-8">Emergency</p>
                 <div className="mb-4">
@@ -158,6 +151,48 @@ export default function PricingPage() {
                   className="block text-center border border-foreground/15 text-foreground/70 px-6 py-3.5 rounded-full text-sm font-medium transition-all duration-400 hover:bg-brand-green hover:border-brand-green hover:text-white"
                 >
                   Get an Estimate
+                </Link>
+              </div>
+
+              <div className="bg-brand-green rounded-2xl p-8 md:p-10 relative flex flex-col transition-all duration-500 hover:shadow-[0_25px_60px_rgba(39,170,39,0.25)] hover:-translate-y-1">
+                <span className="absolute top-6 right-6 bg-black/20 text-white text-xs font-medium px-3.5 py-1.5 rounded-full backdrop-blur-sm">
+                  Most Popular
+                </span>
+                <p className="text-xs font-medium uppercase tracking-widest text-white/60 mb-8">
+                  Managed IT
+                </p>
+                <div className="mb-4">
+                  <span className="heading-serif text-[3.5rem] md:text-[4.5rem] text-white">
+                    $499
+                  </span>
+                  <span className="text-white/60 text-sm ml-2">/mo</span>
+                  <span className="text-white/50 text-xs ml-1">per 5 users</span>
+                </div>
+                <p className="text-white/80 text-sm leading-relaxed mb-10 flex-1">
+                  Ongoing partnership that scales with your team. $499/mo per block of 5 users — add more as you grow.
+                </p>
+                <ul className="space-y-0 mb-10">
+                  {[
+                    "Proactive monitoring & maintenance",
+                    "Priority response times",
+                    "Regular system updates & patches",
+                    "Help desk support for your team",
+                    "Weekend coverage included",
+                    "Quarterly technology reviews",
+                  ].map((f) => (
+                    <li
+                      key={f}
+                      className="text-white/80 border-t border-white/20 py-3 text-sm"
+                    >
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/contact"
+                  className="block text-center bg-white text-brand-green px-6 py-3.5 rounded-full text-sm font-semibold transition-all duration-400 hover:bg-white/90"
+                >
+                  Get Started
                 </Link>
               </div>
             </div>
