@@ -40,12 +40,12 @@ export default function ProcurementPage() {
           <ScrollReveal>
             <div className="max-w-2xl">
               <p className="text-foreground text-[clamp(1.1rem,1.8vw,1.35rem)] leading-[1.8]">
-                Access wholesale pricing on computers, networking equipment, and
-                IT hardware through our partnerships with Ubiquiti, Lenovo, and
-                dozens of other major brands.{" "}
+                Access competitive wholesale pricing on computers, networking
+                equipment, and IT hardware — including brands like Ubiquiti,
+                Lenovo, Dell, and many more.{" "}
                 <strong>
-                  Typically 20–40% below retail — with expert guidance and
-                  professional installation included.
+                  Better-than-retail pricing through our supplier network — with
+                  expert guidance and professional installation included.
                 </strong>
               </p>
             </div>
@@ -71,7 +71,7 @@ export default function ProcurementPage() {
                 icon: DollarSign,
                 title: "Paying full retail prices",
                 description:
-                  "You're buying computers and equipment at full retail price — often 20–40% more than what businesses with supplier relationships pay.",
+                  "You're buying computers and equipment at full retail price — more than what businesses with supplier relationships typically pay.",
               },
               {
                 icon: HelpCircle,
@@ -154,7 +154,7 @@ export default function ProcurementPage() {
                 step: "02",
                 title: "We source at wholesale pricing",
                 description:
-                  "Using our partnerships with Ubiquiti, Lenovo, and dozens of other brands, we get you significantly better pricing than retail — typically 20–40% less.",
+                  "Using our wholesale distributor account, we source from major brands including Ubiquiti, Lenovo, Dell, and more — at better-than-retail pricing.",
               },
               {
                 step: "03",
@@ -187,11 +187,11 @@ export default function ProcurementPage() {
           <ScrollReveal>
             <div className="mb-16 md:mb-20">
               <h2 className="heading-serif text-[clamp(2.5rem,4.5vw,4.5rem)] text-foreground mb-4">
-                Real savings examples.
+                Where you typically save.
               </h2>
               <p className="text-foreground/35 text-sm max-w-md leading-relaxed">
-                Based on actual customer purchases. Savings vary by product,
-                volume, and current promotions.
+                Savings vary by product, brand, volume, and current supplier
+                pricing. Contact us for a quote on your specific requirements.
               </p>
             </div>
           </ScrollReveal>
@@ -199,67 +199,34 @@ export default function ProcurementPage() {
           <div className="grid md:grid-cols-2 gap-4">
             {[
               {
-                item: "Ubiquiti UniFi Network Setup",
-                retail: "~$2,500",
-                ours: "~$1,650",
-                saving: "$850+",
-                pct: "34%",
+                item: "Networking Equipment",
+                detail: "Routers, switches, access points, firewalls",
+                note: "Business-grade gear at below-retail pricing",
               },
               {
-                item: "Lenovo ThinkPad T-Series (5 units)",
-                retail: "~$7,000",
-                ours: "~$4,900",
-                saving: "$2,100+",
-                pct: "30%",
+                item: "Business Laptops & Desktops",
+                detail: "Lenovo ThinkPad, Dell Latitude, HP Business",
+                note: "Significant savings on multi-unit orders",
               },
               {
-                item: "Dell PowerEdge Server",
-                retail: "~$4,500",
-                ours: "~$3,150",
-                saving: "$1,350+",
-                pct: "30%",
+                item: "Servers & Storage",
+                detail: "NAS, rack servers, backup appliances",
+                note: "Wholesale pricing through distributor network",
               },
               {
-                item: "Complete Office Network Refresh",
-                retail: "~$15,000",
-                ours: "~$10,200",
-                saving: "$4,800+",
-                pct: "32%",
+                item: "Complete Office Refreshes",
+                detail: "Full procurement, delivery & setup packages",
+                note: "Best value when bundling hardware + installation",
               },
-            ].map(({ item, retail, ours, saving, pct }, i) => (
+            ].map(({ item, detail, note }, i) => (
               <ScrollReveal key={item} delay={i * 60}>
                 <div className="bg-foreground/3 border border-foreground/8 rounded-2xl p-8 md:p-10 h-full">
-                  <h3 className="heading-serif text-[1.3rem] md:text-[1.5rem] text-foreground mb-6">
+                  <h3 className="heading-serif text-[1.3rem] md:text-[1.5rem] text-foreground mb-2">
                     {item}
                   </h3>
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center">
-                      <span className="text-foreground/35 text-sm">
-                        Retail price
-                      </span>
-                      <span className="text-foreground/35 text-sm line-through">
-                        {retail}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-foreground/50 text-sm">
-                        Our price
-                      </span>
-                      <span className="text-foreground text-sm font-medium">
-                        {ours}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center pt-3 border-t border-foreground/8">
-                      <span className="text-brand-green text-sm font-semibold">
-                        Your savings
-                      </span>
-                      <span className="text-brand-green font-semibold">
-                        {saving}{" "}
-                        <span className="text-brand-green/60 font-normal">
-                          ({pct})
-                        </span>
-                      </span>
-                    </div>
+                  <p className="text-foreground/35 text-sm mb-6">{detail}</p>
+                  <div className="flex items-center gap-2 pt-4 border-t border-foreground/8">
+                    <span className="text-brand-green text-sm">{note}</span>
                   </div>
                 </div>
               </ScrollReveal>
@@ -274,11 +241,11 @@ export default function ProcurementPage() {
           <ScrollReveal>
             <div className="mb-16 md:mb-20">
               <h2 className="heading-serif text-[clamp(2.5rem,4.5vw,4.5rem)] text-foreground mb-4">
-                Our brand partnerships.
+                Equipment we supply.
               </h2>
               <p className="text-foreground/35 text-sm max-w-md leading-relaxed">
-                Direct manufacturer relationships and distributor access mean
-                wholesale pricing for you.
+                Sourced through our wholesale distributor network — below retail
+                pricing for you.
               </p>
             </div>
           </ScrollReveal>
@@ -501,7 +468,7 @@ export default function ProcurementPage() {
                 </p>
                 <ul className="space-y-5">
                   {[
-                    "Wholesale pricing saving you 20–40% on equipment",
+                    "Better-than-retail pricing through our supplier network",
                     "Expert guidance on choosing the right products",
                     "Professional installation and setup included",
                     "Single point of contact for everything",
@@ -547,7 +514,7 @@ export default function ProcurementPage() {
               },
               {
                 q: "What if I find it cheaper elsewhere?",
-                a: "Let us know — we'll do our best to match or beat legitimate pricing. Keep in mind that retail sales often still exceed our everyday wholesale pricing.",
+                a: "Let us know — we'll do our best to match or beat legitimate pricing. Our quotes are based on current supplier pricing, which varies by product and volume.",
               },
               {
                 q: "Do you handle warranties?",
