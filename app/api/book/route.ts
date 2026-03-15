@@ -31,7 +31,12 @@ export async function POST(req: NextRequest) {
     complexity,
     reasoning,
     preferredDate,
+    _trap,
   } = await req.json();
+
+  if (_trap) {
+    return NextResponse.json({ ok: true }); // silently ignore bots
+  }
 
   if (!name || !email || !issue) {
     return NextResponse.json({ error: "Missing required fields" }, { status: 400 });

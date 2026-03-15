@@ -128,6 +128,7 @@ export default function EstimateForm() {
   const [phone, setPhone] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
+  const [trap, setTrap] = useState("");
 
   const [nameVal, setNameVal] = useState("");
   const [companyVal, setCompanyVal] = useState("");
@@ -239,6 +240,7 @@ export default function EstimateForm() {
         name,
         email: val,
         phone: phoneVal.trim() || undefined,
+        _trap: trap || undefined,
         company: company || undefined,
         issue,
         priority,
@@ -259,7 +261,7 @@ export default function EstimateForm() {
       setEmail(""); setPhone("");
       setPriority("normal"); setDiscounts([]); setResult(null); setErrorMsg("");
       setNameVal(""); setCompanyVal(""); setAddressVal(""); setIssueVal("");
-      setEmailVal(""); setPhoneVal("");
+      setEmailVal(""); setPhoneVal(""); setTrap("");
       setSelectedDate(""); setSelectedTime("");
       setVisible(true);
     }, 220);
@@ -530,6 +532,9 @@ export default function EstimateForm() {
                 {/* ── Divider ── */}
                 <div className="border-t border-white/10 my-6" />
                 <p className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-6">Your details</p>
+
+                {/* Honeypot — hidden from real users, bots fill it in */}
+                <input type="text" aria-hidden="true" tabIndex={-1} autoComplete="off" value={trap} onChange={(e) => setTrap(e.target.value)} style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", overflow: "hidden" }} />
 
                 {/* ── Contact fields ── */}
                 <div className="space-y-6">
