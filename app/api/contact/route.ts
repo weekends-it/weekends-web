@@ -17,7 +17,11 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Missing RESEND_API_KEY" }, { status: 500 });
   }
 
-  const { name, email, phone, serviceType, message } = await req.json();
+  const { name, email, phone, serviceType, message, _trap } = await req.json();
+
+  if (_trap) {
+    return NextResponse.json({ ok: true }); // silently ignore bots
+  }
 
   if (!name || !email || !message) {
     return NextResponse.json({ error: "Missing required fields" }, { status: 400 });

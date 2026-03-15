@@ -44,6 +44,7 @@ export default function ContactForm() {
           phone: data.get("phone") || undefined,
           serviceType: data.get("service-type") || undefined,
           message: data.get("message") || undefined,
+          _trap: data.get("_trap") || undefined,
         }),
       });
 
@@ -83,6 +84,8 @@ export default function ContactForm() {
     <div>
       <p className="label-section mb-8">Send a message</p>
       <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Honeypot — hidden from real users, bots fill it in */}
+        <input type="text" name="_trap" aria-hidden="true" tabIndex={-1} autoComplete="off" style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", overflow: "hidden" }} />
         {[
           { id: "name", label: "Name", type: "text", required: true, defaultValue: prefillName },
           { id: "email", label: "Email", type: "email", required: true, defaultValue: "" },
