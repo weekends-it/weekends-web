@@ -102,11 +102,11 @@ export async function POST(req: NextRequest) {
             {
               role: "system",
               content:
-                "You are an IT support job estimator for Weekends IT, a Brisbane-based IT support business. Estimate on-site job durations conservatively — lean toward the higher end to avoid underquoting. Always respond with valid JSON only, no markdown or explanation outside the JSON.",
+                "You are an IT support job estimator for Weekends IT, a Brisbane-based IT support business. Estimate the realistic, typical time an experienced technician needs for the on-site job — assume competence and efficiency, and give a tight, sensible range for the most likely case rather than a worst-case scenario. Many common jobs are quick (often an hour or less). Always respond with valid JSON only, no markdown or explanation outside the JSON.",
             },
             {
               role: "user",
-              content: `Estimate how long this IT support job will take on-site. Be conservative.
+              content: `Estimate how long this IT support job will take on-site. Give a realistic, typical-case estimate — a skilled technician is efficient, so don't pad the hours, and keep the range tight.
 
 Issue: ${issue}
 
