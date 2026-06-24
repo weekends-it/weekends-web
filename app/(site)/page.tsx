@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import ContactButton from "@/components/ContactButton";
 import HeroSection from "@/components/HeroSection";
 import ImageCarousel from "@/components/ImageCarousel";
 import BrandScroller from "@/components/BrandScroller";
@@ -523,12 +524,11 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/contact"
-                  className="block text-center bg-white text-brand-green px-6 py-3.5 rounded-full text-sm font-semibold transition-all duration-400 hover:bg-white/90"
+                <ContactButton
+                  className="block w-full text-center bg-white text-brand-green px-6 py-3.5 rounded-full text-sm font-semibold transition-all duration-400 hover:bg-white/90"
                 >
-                  Contact Us
-                </Link>
+                  Chat with us now
+                </ContactButton>
               </div>
             </ScrollReveal>
           </div>

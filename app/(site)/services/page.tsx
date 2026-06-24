@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import ContactButton from "@/components/ContactButton";
 import PageHero from "@/components/PageHero";
 import {
   Building2,
@@ -262,12 +263,11 @@ export default function ServicesPage() {
                 >
                   View Pricing
                 </Link>
-                <Link
-                  href="/contact"
+                <ContactButton
                   className="text-foreground/50 font-medium text-sm border-b border-foreground/20 pb-0.5 transition-all duration-500 hover:text-foreground hover:border-foreground/60"
                 >
-                  Contact Us
-                </Link>
+                  Chat with us now
+                </ContactButton>
               </div>
             </div>
           </ScrollReveal>

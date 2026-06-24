@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import ContactButton from "@/components/ContactButton";
 import PageHero from "@/components/PageHero";
 import {
   Flame,
@@ -289,12 +290,11 @@ export default function ManagedITPage() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/contact"
-                  className="block text-center border border-foreground/15 text-foreground/70 px-6 py-3.5 rounded-full text-sm font-medium transition-all duration-400 hover:bg-brand-green hover:border-brand-green hover:text-white"
+                <ContactButton
+                  className="block w-full text-center border border-foreground/15 text-foreground/70 px-6 py-3.5 rounded-full text-sm font-medium transition-all duration-400 hover:bg-brand-green hover:border-brand-green hover:text-white"
                 >
-                  Contact Us
-                </Link>
+                  Chat with us now
+                </ContactButton>
               </div>
             </ScrollReveal>
           </div>
