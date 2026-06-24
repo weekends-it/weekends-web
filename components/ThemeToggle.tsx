@@ -1,27 +1,36 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+
+// Read the current theme straight from the <html data-theme> attribute (set by
+// the inline script in layout and by this toggle). useSyncExternalStore is the
+// idiomatic way to subscribe a component to an external value without a
+// setState-in-effect.
+function subscribe(callback: () => void) {
+  const observer = new MutationObserver(callback);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["data-theme"],
+  });
+  return () => observer.disconnect();
+}
+
+function getSnapshot() {
+  return document.documentElement.getAttribute("data-theme") === "dark";
+}
+
+function getServerSnapshot() {
+  return false; // light by default during SSR
+}
 
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const current = document.documentElement.getAttribute("data-theme");
-    setIsDark(current === "dark");
-
-    // Keep in sync if another component changes the theme
-    const observer = new MutationObserver(() => {
-      setIsDark(document.documentElement.getAttribute("data-theme") === "dark");
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
-    return () => observer.disconnect();
-  }, []);
+  const isDark = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   const toggle = () => {
     const next = isDark ? "light" : "dark";
-    setIsDark(!isDark);
     localStorage.setItem("theme", next);
     document.documentElement.setAttribute("data-theme", next);
+    // The MutationObserver above re-renders with the new value.
   };
 
   return (

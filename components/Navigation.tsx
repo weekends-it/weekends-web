@@ -26,6 +26,8 @@ export default function Navigation() {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Intentionally close the menu whenever the route changes.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMenuOpen(false);
   }, [pathname]);
 
@@ -49,6 +51,8 @@ export default function Navigation() {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
+    // Measure the initial scroll position once on mount.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
@@ -89,6 +93,7 @@ export default function Navigation() {
                 className="flex flex-col gap-[5px] bg-transparent border-none cursor-pointer p-1 shrink-0"
                 onClick={() => setMenuOpen(!menuOpen)}
                 aria-label="Toggle menu"
+                aria-expanded={menuOpen}
               >
                 <span className={`block w-[18px] h-[2px] bg-foreground rounded-full transition-transform duration-200 origin-center ${menuOpen ? "translate-y-[3.5px] rotate-45" : ""}`} />
                 <span className={`block w-[18px] h-[2px] bg-foreground rounded-full transition-transform duration-200 origin-center ${menuOpen ? "-translate-y-[3.5px] -rotate-45" : ""}`} />

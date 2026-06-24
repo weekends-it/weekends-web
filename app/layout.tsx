@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeProvider";
 import IntercomProvider from "@/components/IntercomProvider";
 import JsonLd from "@/components/JsonLd";
 import { localBusinessJsonLd, websiteJsonLd } from "@/lib/seo";
@@ -75,9 +74,7 @@ export default function RootLayout({
       <body className={`${outfit.variable} ${jetbrainsMono.variable} bg-surface-dark`}>
         <JsonLd data={localBusinessJsonLd} />
         <JsonLd data={websiteJsonLd} />
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+        {children}
         <IntercomProvider />
         <Analytics />
         <SpeedInsights />
