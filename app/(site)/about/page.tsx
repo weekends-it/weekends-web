@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Image from "next/image";
+import ContactButton from "@/components/ContactButton";
+import { CHAT } from "@/lib/chat";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
-import ImageCarousel from "@/components/ImageCarousel";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -16,7 +17,7 @@ export default function AboutPage() {
   return (
     <>
       {/* ===== HERO ===== */}
-      <PageHero image="/images/wkends-16.jpg">
+      <PageHero image="/images/wkends-16.jpg" alt="The Weekends IT team">
         IT support built around{" "}
         <span className="text-brand-green">real needs.</span>
       </PageHero>
@@ -85,7 +86,7 @@ export default function AboutPage() {
       <section className="bg-surface">
         <div className="max-w-screen-2xl mx-auto px-8 md:px-10">
           <div className="relative rounded-2xl overflow-hidden h-[50vh] min-h-[400px]">
-            <div className="absolute inset-0" style={{ backgroundImage: "url('/images/wkends-17.jpg')", backgroundSize: "cover", backgroundPosition: "center 30%" }} />
+            <Image src="/images/wkends-17.jpg" alt="Weekends IT providing on-site support" fill sizes="100vw" className="object-cover object-[center_30%]" />
             <div className="absolute inset-0 bg-black/30" />
             <div className="relative z-10 h-full flex items-end justify-end p-8 md:p-12">
               <ScrollReveal direction="none">
@@ -199,10 +200,6 @@ export default function AboutPage() {
               us different.
             </h2>
           </ScrollReveal>
-          <ScrollReveal delay={100}>
-            <ImageCarousel className="rounded-2xl mb-20 md:mb-28" slots={4} direction="left" height="h-[300px] md:h-[500px] lg:h-[700px]" />
-          </ScrollReveal>
-
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {[
               {
@@ -278,12 +275,12 @@ export default function AboutPage() {
                 Let&apos;s solve your technology challenges and get you back to
                 focusing on what matters most.
               </p>
-              <Link
-                href="/contact"
+              <ContactButton
                 className="inline-block bg-brand-green text-white px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-brand-green-dark hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(39,170,39,0.25)]"
+                message={CHAT.getInTouch}
               >
                 Get in Touch
-              </Link>
+              </ContactButton>
             </div>
           </ScrollReveal>
         </div>

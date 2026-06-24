@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import ContactButton from "@/components/ContactButton";
+import { CHAT } from "@/lib/chat";
 import HeroSection from "@/components/HeroSection";
-import ImageCarousel from "@/components/ImageCarousel";
 import BrandScroller from "@/components/BrandScroller";
 import {
   Laptop,
@@ -107,15 +107,6 @@ export default function HomePage() {
               that&apos;s both accessible and affordable &mdash; without
               breaking the bank or waiting days for help.
             </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ===== IMAGE CAROUSEL ===== */}
-      <section className="bg-surface">
-        <div className="max-w-7xl mx-auto px-8 md:px-16 pb-20 md:pb-28">
-          <ScrollReveal>
-            <ImageCarousel slots={4} height="h-[300px] md:h-[500px] lg:h-[700px]" autoSpread />
           </ScrollReveal>
         </div>
       </section>
@@ -605,12 +596,12 @@ export default function HomePage() {
                 here to help. Get in touch today.
               </p>
               <div className="flex gap-5 flex-wrap mb-16">
-                <a
-                  href="mailto:hello@wkends.com"
+                <ContactButton
                   className="text-foreground/50 font-medium text-sm border-b border-foreground/20 pb-0.5 transition-all duration-500 hover:text-foreground hover:border-foreground/60"
+                  message={CHAT.question}
                 >
                   Email Us
-                </a>
+                </ContactButton>
               </div>
               <div className="text-foreground/30 text-sm space-y-1.5">
                 <p>
@@ -618,7 +609,7 @@ export default function HomePage() {
                   Fri 6pm–2am &nbsp;·&nbsp; Sat–Sun 4am–2am
                 </p>
                 <p>
-                  <span className="text-foreground/55">Serving:</span> Gympie to Gold Coast, Brisbane
+                  <span className="text-foreground/55">Serving:</span> Gympie to Gold Coast, Brisbane &amp; the Sunshine Coast
                 </p>
               </div>
             </div>

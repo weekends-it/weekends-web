@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import ContactButton from "@/components/ContactButton";
+import { CHAT } from "@/lib/chat";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
 
@@ -15,7 +18,7 @@ export default function PricingPage() {
   return (
     <>
       {/* ===== HERO ===== */}
-      <PageHero image="/images/wkends-22.jpg">
+      <PageHero image="/images/wkends-22.jpg" alt="Weekends IT service pricing">
         Transparent pricing that{" "}
         <span className="text-brand-green">makes sense.</span>
       </PageHero>
@@ -192,12 +195,12 @@ export default function PricingPage() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/contact"
-                  className="block text-center bg-white text-brand-green px-6 py-3.5 rounded-full text-sm font-semibold transition-all duration-400 hover:bg-white/90"
+                <ContactButton
+                  className="block w-full text-center bg-white text-brand-green px-6 py-3.5 rounded-full text-sm font-semibold transition-all duration-400 hover:bg-white/90"
+                  message={CHAT.getStarted}
                 >
                   Get Started
-                </Link>
+                </ContactButton>
               </div>
             </div>
           </ScrollReveal>
@@ -207,7 +210,9 @@ export default function PricingPage() {
       {/* ===== IMAGE ===== */}
       <section className="bg-surface-dark">
         <div className="max-w-screen-2xl mx-auto px-8 md:px-10 pb-28 md:pb-40">
-          <div className="rounded-2xl border border-foreground/8 h-[35vh] min-h-[250px]" style={{ backgroundImage: "url('/images/wkends-24.jpg')", backgroundSize: "cover", backgroundPosition: "center" }} />
+          <div className="rounded-2xl border border-foreground/8 h-[35vh] min-h-[250px] relative overflow-hidden">
+            <Image src="/images/wkends-24.jpg" alt="On-site IT support in Brisbane" fill sizes="(max-width: 1280px) 100vw, 1280px" className="object-cover" />
+          </div>
         </div>
       </section>
 

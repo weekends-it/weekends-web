@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
 import JsonLd from "@/components/JsonLd";
+import ContactButton from "@/components/ContactButton";
+import { CHAT } from "@/lib/chat";
 import { serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import {
   Smartphone,
@@ -21,7 +24,7 @@ import {
 export const metadata: Metadata = {
   title: "Tech Support for Seniors Brisbane",
   description:
-    "Patient, friendly technology help for Brisbane seniors. We explain everything clearly, move at your pace, and never make you feel bad for asking questions.",
+    "Patient, friendly technology help for Brisbane seniors — at your pace, clearly explained. Group sessions available for nursing homes and retirement villages.",
   alternates: { canonical: "/services/seniors" },
   openGraph: { title: "Tech Support for Seniors Brisbane | Weekends IT", url: "/services/seniors", images: ["/og-image.jpg"] },
 };
@@ -32,7 +35,7 @@ export default function SeniorsPage() {
       <JsonLd data={serviceJsonLd({ name: "Tech Support for Seniors Brisbane", description: "Patient, friendly technology help for Brisbane seniors. We explain everything clearly, move at your pace, and never make you feel bad for asking questions.", path: "/services/seniors" })} />
       <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Tech Support for Seniors Brisbane", path: "/services/seniors" }])} />
       {/* ===== HERO ===== */}
-      <PageHero image="/images/wkends-8.jpg">
+      <PageHero image="/images/wkends-8.jpg" alt="Patient tech support for seniors">
         Patient tech help for seniors.{" "}
         <span className="text-brand-green">No judgment, no rush.</span>
       </PageHero>
@@ -123,7 +126,9 @@ export default function SeniorsPage() {
       {/* ===== IMAGE ===== */}
       <section className="bg-surface">
         <div className="max-w-screen-2xl mx-auto px-8 md:px-10">
-          <div className="rounded-2xl border border-foreground/8 h-[40vh] min-h-[300px]" style={{ backgroundImage: "url('/images/wkends-23.jpg')", backgroundSize: "cover", backgroundPosition: "center" }} />
+          <div className="rounded-2xl border border-foreground/8 h-[40vh] min-h-[300px] relative overflow-hidden">
+            <Image src="/images/wkends-23.jpg" alt="Friendly technology help for a senior" fill sizes="(max-width: 1280px) 100vw, 1280px" className="object-cover" />
+          </div>
         </div>
       </section>
 
@@ -527,6 +532,66 @@ export default function SeniorsPage() {
         </div>
       </section>
 
+      {/* ===== GROUP BOOKINGS (AGED CARE) ===== */}
+      <section className="bg-surface-dark border-t border-foreground/5">
+        <div className="max-w-7xl mx-auto px-8 md:px-16 py-28 md:py-40">
+          <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
+            <ScrollReveal>
+              <div>
+                <p className="label-section mb-6">Group bookings</p>
+                <h2 className="heading-serif text-[clamp(2.5rem,4.5vw,4.5rem)] text-foreground mb-6">
+                  Group tech sessions for nursing homes &amp; retirement villages.
+                </h2>
+                <p className="text-foreground/40 text-base leading-relaxed mb-8 max-w-md">
+                  Ideal for lifestyle coordinators and facility managers: we run
+                  friendly, patient group sessions on-site for your residents —
+                  from video-calling family and managing photos to spotting scams
+                  and staying safe online. One booking, your whole community
+                  benefits.
+                </p>
+                <div className="flex items-baseline gap-3 mb-10">
+                  <span className="heading-serif text-[3rem] md:text-[3.5rem] text-foreground">
+                    $400
+                  </span>
+                  <span className="text-foreground/40 text-sm">/ session, on-site</span>
+                </div>
+                <ContactButton
+                  className="inline-block bg-brand-green text-white px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-brand-green-dark hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(39,170,39,0.25)]"
+                  message={CHAT.groupBooking}
+                >
+                  Book a group session
+                </ContactButton>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={120}>
+              <div className="bg-foreground/3 border border-foreground/8 rounded-2xl p-8 md:p-10">
+                <p className="text-foreground/30 text-xs uppercase tracking-widest font-medium mb-6">
+                  What&apos;s included
+                </p>
+                <ul className="space-y-4">
+                  {[
+                    "On-site session for a group of residents",
+                    "Patient, jargon-free teaching at their pace",
+                    "Video calling, photos, messaging & online safety",
+                    "Printed step-by-step guides to keep",
+                    "Flexible scheduling, including weekends",
+                    "Tailored to your residents' devices & needs",
+                  ].map((item) => (
+                    <li
+                      key={item}
+                      className="text-foreground/50 text-sm flex gap-3"
+                    >
+                      <Check size={14} className="text-brand-green shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
       {/* ===== CTA ===== */}
       <section className="bg-surface border-t border-foreground/5">
         <div className="max-w-7xl mx-auto px-8 md:px-16 py-28 md:py-40">
@@ -546,12 +611,12 @@ export default function SeniorsPage() {
                 >
                   Get an Estimate
                 </Link>
-                <Link
-                  href="/contact"
+                <ContactButton
                   className="inline-block text-foreground/50 font-medium text-sm border-b border-foreground/20 pb-0.5 transition-all duration-500 hover:text-foreground hover:border-foreground/60"
+                  message={CHAT.getInTouch}
                 >
                   Call Us to Talk
-                </Link>
+                </ContactButton>
               </div>
             </div>
           </ScrollReveal>

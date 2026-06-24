@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
@@ -33,7 +34,7 @@ export default function RemoteSupportPage() {
       <JsonLd data={serviceJsonLd({ name: "Remote IT Support", description: "Remote IT support from $70/hr — available anywhere in Australia. Get help fast without waiting for a site visit. Friday nights, Saturdays, and Sundays.", path: "/services/remote-support" })} />
       <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Remote IT Support", path: "/services/remote-support" }])} />
       {/* ===== HERO ===== */}
-      <PageHero image="/images/wkends-5.jpg">
+      <PageHero image="/images/wkends-5.jpg" alt="Remote IT support from Weekends IT">
         Fast tech help.{" "}
         <span className="text-brand-green">No driving required.</span>
       </PageHero>
@@ -123,7 +124,9 @@ export default function RemoteSupportPage() {
       {/* ===== IMAGE ===== */}
       <section className="bg-surface">
         <div className="max-w-screen-2xl mx-auto px-8 md:px-10">
-          <div className="rounded-2xl border border-foreground/8 h-[40vh] min-h-[300px]" style={{ backgroundImage: "url('/images/wkends-6.jpg')", backgroundSize: "cover", backgroundPosition: "center" }} />
+          <div className="rounded-2xl border border-foreground/8 h-[40vh] min-h-[300px] relative overflow-hidden">
+            <Image src="/images/wkends-6.jpg" alt="Remote IT troubleshooting session" fill sizes="(max-width: 1280px) 100vw, 1280px" className="object-cover" />
+          </div>
         </div>
       </section>
 

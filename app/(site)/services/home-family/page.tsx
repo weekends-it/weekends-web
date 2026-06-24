@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
@@ -32,7 +33,7 @@ export default function HomeFamilyPage() {
       <JsonLd data={serviceJsonLd({ name: "Home & Family IT Support Brisbane", description: "Weekend IT support for Brisbane homes. Computer repairs, home network setup, smart devices, printers, and more — available when your family is actually home.", path: "/services/home-family" })} />
       <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Home & Family IT Support Brisbane", path: "/services/home-family" }])} />
       {/* ===== HERO ===== */}
-      <PageHero image="/images/wkends-20.jpg">
+      <PageHero image="/images/wkends-20.jpg" alt="Home and family tech support in Brisbane">
         Technology that{" "}
         <span className="text-brand-green">just works</span> for your family.
       </PageHero>
@@ -121,7 +122,9 @@ export default function HomeFamilyPage() {
       {/* ===== IMAGE ===== */}
       <section className="bg-surface">
         <div className="max-w-screen-2xl mx-auto px-8 md:px-10">
-          <div className="rounded-2xl border border-foreground/8 h-[40vh] min-h-[300px]" style={{ backgroundImage: "url('/images/wkends-26.jpg')", backgroundSize: "cover", backgroundPosition: "center" }} />
+          <div className="rounded-2xl border border-foreground/8 h-[40vh] min-h-[300px] relative overflow-hidden">
+            <Image src="/images/wkends-26.jpg" alt="Helping a family with home technology" fill sizes="(max-width: 1280px) 100vw, 1280px" className="object-cover" />
+          </div>
         </div>
       </section>
 

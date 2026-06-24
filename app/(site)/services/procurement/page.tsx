@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
 import JsonLd from "@/components/JsonLd";
+import ContactButton from "@/components/ContactButton";
+import { CHAT } from "@/lib/chat";
 import { serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import {
   DollarSign,
@@ -37,7 +39,7 @@ export default function ProcurementPage() {
       <JsonLd data={serviceJsonLd({ name: "IT Equipment Procurement Brisbane", description: "Source laptops, networking gear, servers, and more through Weekends IT. Better-than-retail pricing via our wholesale distributor network. Brisbane & beyond.", path: "/services/procurement" })} />
       <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "IT Equipment Procurement Brisbane", path: "/services/procurement" }])} />
       {/* ===== HERO ===== */}
-      <PageHero image="/images/wkends-14.jpg">
+      <PageHero image="/images/wkends-14.jpg" alt="IT equipment procurement">
         Get better IT equipment at{" "}
         <span className="text-brand-green">better prices.</span>
       </PageHero>
@@ -128,7 +130,9 @@ export default function ProcurementPage() {
       {/* ===== IMAGE ===== */}
       <section className="bg-surface">
         <div className="max-w-screen-2xl mx-auto px-8 md:px-10">
-          <div className="rounded-2xl border border-foreground/8 h-[40vh] min-h-[300px]" style={{ backgroundImage: "url('/images/wkends-15.jpg')", backgroundSize: "cover", backgroundPosition: "center" }} />
+          <div className="rounded-2xl border border-foreground/8 h-[40vh] min-h-[300px] relative overflow-hidden">
+            <Image src="/images/wkends-15.jpg" alt="Sourcing IT hardware and equipment" fill sizes="(max-width: 1280px) 100vw, 1280px" className="object-cover" />
+          </div>
         </div>
       </section>
 
@@ -286,7 +290,7 @@ export default function ProcurementPage() {
               {
                 icon: CreditCard,
                 title: "Point of Sale",
-                brands: "Clover, Square, Toast, Lightspeed, Shopify POS",
+                brands: "Square, Zeller, Clover, Toast, Lightspeed, Shopify POS",
               },
               {
                 icon: Code,
@@ -564,18 +568,18 @@ export default function ProcurementPage() {
                 installation — all in one place.
               </p>
               <div className="flex gap-5 flex-wrap">
-                <Link
-                  href="/contact"
+                <ContactButton
                   className="inline-block bg-brand-green text-white px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-brand-green-dark hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(39,170,39,0.25)]"
+                  message={CHAT.quote}
                 >
                   Request a Quote
-                </Link>
-                <Link
-                  href="/contact"
+                </ContactButton>
+                <ContactButton
                   className="inline-block text-foreground/50 font-medium text-sm border-b border-foreground/20 pb-0.5 transition-all duration-500 hover:text-foreground hover:border-foreground/60"
+                  message={CHAT.getInTouch}
                 >
                   Call to Discuss
-                </Link>
+                </ContactButton>
               </div>
               <p className="text-foreground/25 text-xs mt-10 max-w-md leading-relaxed">
                 Mention this page and receive a free network assessment (valued

@@ -67,6 +67,8 @@ const brands: BrandItem[] = [
   { name: "Microsoft", logo: <MicrosoftLogo /> },
   { name: "3CX", logo: <span className="font-semibold text-[0.8rem] tracking-widest uppercase">3CX</span> },
   { name: "PaperCut", logo: <span className="font-semibold text-[0.8rem] tracking-widest uppercase">PaperCut</span> },
+  { name: "Square", logo: <span className="font-semibold text-[0.8rem] tracking-widest uppercase">Square</span> },
+  { name: "Zeller", logo: <span className="font-semibold text-[0.8rem] tracking-widest uppercase">Zeller</span> },
 ];
 
 export default function BrandScroller() {

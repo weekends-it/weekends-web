@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Suspense } from "react";
 import ContactForm from "@/components/ContactForm";
+import ContactButton from "@/components/ContactButton";
+import { CHAT } from "@/lib/chat";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
 
@@ -16,7 +19,7 @@ export default function ContactPage() {
   return (
     <>
       {/* ===== HERO ===== */}
-      <PageHero image="/images/wkends-19.jpg">
+      <PageHero image="/images/wkends-19.jpg" alt="Get in touch with Weekends IT">
         Let&apos;s{" "}
         <span className="text-brand-green">get started.</span>
       </PageHero>
@@ -42,6 +45,14 @@ export default function ContactPage() {
                     >
                       hello@wkends.com
                     </a>
+                  </div>
+                  <div>
+                    <p className="text-foreground/30 text-xs uppercase tracking-widest font-medium mb-4">
+                      Live chat
+                    </p>
+                    <ContactButton className="inline-block bg-brand-green text-white px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-brand-green-dark hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(39,170,39,0.25)]">
+                      Chat with us now
+                    </ContactButton>
                   </div>
                   <div>
                     <p className="text-foreground/30 text-xs uppercase tracking-widest font-medium mb-4">
@@ -144,14 +155,16 @@ export default function ContactPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={60}>
-            <div className="rounded-2xl border border-foreground/8 h-[35vh] min-h-[250px] mb-16 md:mb-20" style={{ backgroundImage: "url('/images/wkends-21.jpg')", backgroundSize: "cover", backgroundPosition: "center" }} />
+            <div className="rounded-2xl border border-foreground/8 h-[35vh] min-h-[250px] mb-16 md:mb-20 relative overflow-hidden">
+              <Image src="/images/wkends-21.jpg" alt="Weekend IT support in Brisbane" fill sizes="(max-width: 1280px) 100vw, 1280px" className="object-cover" />
+            </div>
           </ScrollReveal>
 
           <div className="grid md:grid-cols-3 gap-4">
             {[
               {
                 title: "Service Area",
-                body: "Based in Brisbane, Australia. We provide on-site support from Gympie to the Gold Coast.",
+                body: "Based in Brisbane, Australia. We provide on-site support from Gympie to the Gold Coast, including the Sunshine Coast.",
               },
               {
                 title: "Extended Service",
@@ -191,12 +204,12 @@ export default function ContactPage() {
                 that can&apos;t wait. Reach out via email or live chat.
               </p>
               <div className="flex gap-5 flex-wrap">
-                <a
-                  href="mailto:hello@wkends.com"
+                <ContactButton
                   className="bg-brand-green text-white px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-brand-green-dark hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(39,170,39,0.25)]"
+                  message={CHAT.question}
                 >
-                  Email Us
-                </a>
+                  Chat with us now
+                </ContactButton>
               </div>
             </div>
           </ScrollReveal>

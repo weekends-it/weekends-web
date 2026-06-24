@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
@@ -30,7 +31,7 @@ export default function BreakFixPage() {
       <JsonLd data={serviceJsonLd({ name: "Break/Fix IT Repairs Brisbane", description: "Pay-as-you-go IT repairs in Brisbane from $85/hr. No contracts, no call-out fees. Available Friday night through Sunday, covering Gympie to the Gold Coast.", path: "/services/break-fix" })} />
       <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Break/Fix IT Repairs Brisbane", path: "/services/break-fix" }])} />
       {/* ===== HERO ===== */}
-      <PageHero image="/images/wkends-3.jpg">
+      <PageHero image="/images/wkends-3.jpg" alt="Break-fix computer repairs in Brisbane">
         Expert IT help when you need it.{" "}
         <span className="text-brand-green">No contracts required.</span>
       </PageHero>
@@ -121,7 +122,9 @@ export default function BreakFixPage() {
       {/* ===== IMAGE ===== */}
       <section className="bg-surface">
         <div className="max-w-screen-2xl mx-auto px-8 md:px-10">
-          <div className="rounded-2xl border border-foreground/8 h-[40vh] min-h-[300px]" style={{ backgroundImage: "url('/images/wkends-4.jpg')", backgroundSize: "cover", backgroundPosition: "center" }} />
+          <div className="rounded-2xl border border-foreground/8 h-[40vh] min-h-[300px] relative overflow-hidden">
+            <Image src="/images/wkends-4.jpg" alt="On-site computer repair" fill sizes="(max-width: 1280px) 100vw, 1280px" className="object-cover" />
+          </div>
         </div>
       </section>
 

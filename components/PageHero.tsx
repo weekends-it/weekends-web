@@ -1,14 +1,16 @@
 "use client";
 
 import { ReactNode, useEffect, useState } from "react";
+import Image from "next/image";
 import HeroHeadline from "./HeroHeadline";
 
 interface PageHeroProps {
   children: ReactNode;
   image?: string;
+  alt?: string;
 }
 
-export default function PageHero({ children, image = "/images/hero.jpg" }: PageHeroProps) {
+export default function PageHero({ children, image = "/images/hero.jpg", alt = "" }: PageHeroProps) {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -18,9 +20,13 @@ export default function PageHero({ children, image = "/images/hero.jpg" }: PageH
 
   return (
     <section className="relative h-screen overflow-hidden bg-surface-dark">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url('${image}')` }}
+      <Image
+        src={image}
+        alt={alt}
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
       />
 
       <HeroHeadline loaded={loaded}>

@@ -6,6 +6,7 @@ import IntercomProvider from "@/components/IntercomProvider";
 import JsonLd from "@/components/JsonLd";
 import { localBusinessJsonLd, websiteJsonLd } from "@/lib/seo";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -79,6 +80,7 @@ export default function RootLayout({
         </ThemeProvider>
         <IntercomProvider />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

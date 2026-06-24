@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
@@ -31,7 +32,7 @@ export default function RetailPage() {
       <JsonLd data={serviceJsonLd({ name: "Retail IT Support Brisbane", description: "IT support for Brisbane retail businesses. POS systems, EFTPOS, payment terminals, network setup, and weekend availability when you need it most.", path: "/services/retail" })} />
       <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Retail IT Support Brisbane", path: "/services/retail" }])} />
       {/* ===== HERO ===== */}
-      <PageHero image="/images/wkends-12.jpg">
+      <PageHero image="/images/wkends-12.jpg" alt="Retail IT and POS support in Brisbane">
         Keep your store{" "}
         <span className="text-brand-green">running smoothly.</span>
       </PageHero>
@@ -121,7 +122,9 @@ export default function RetailPage() {
       {/* ===== IMAGE ===== */}
       <section className="bg-surface">
         <div className="max-w-screen-2xl mx-auto px-8 md:px-10">
-          <div className="rounded-2xl border border-foreground/8 h-[40vh] min-h-[300px]" style={{ backgroundImage: "url('/images/wkends-13.jpg')", backgroundSize: "cover", backgroundPosition: "center" }} />
+          <div className="rounded-2xl border border-foreground/8 h-[40vh] min-h-[300px] relative overflow-hidden">
+            <Image src="/images/wkends-13.jpg" alt="Point-of-sale and retail technology support" fill sizes="(max-width: 1280px) 100vw, 1280px" className="object-cover" />
+          </div>
         </div>
       </section>
 

@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import ContactButton from "@/components/ContactButton";
 import PageHero from "@/components/PageHero";
 import JsonLd from "@/components/JsonLd";
 import { serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
+import { CHAT } from "@/lib/chat";
 import {
   Flame,
   DollarSign,
@@ -34,7 +36,7 @@ export default function ManagedITPage() {
       <JsonLd data={serviceJsonLd({ name: "Managed IT Services Brisbane", description: "Proactive managed IT for Brisbane businesses from $499/mo per 5 users. Includes monitoring, maintenance, help desk support, and weekend availability.", path: "/services/managed-it" })} />
       <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Managed IT Services Brisbane", path: "/services/managed-it" }])} />
       {/* ===== HERO ===== */}
-      <PageHero image="/images/wkends-10.jpg">
+      <PageHero image="/images/wkends-10.jpg" alt="Managed IT services in Brisbane">
         Proactive IT management for{" "}
         <span className="text-brand-green">growing businesses.</span>
       </PageHero>
@@ -124,7 +126,9 @@ export default function ManagedITPage() {
       {/* ===== IMAGE ===== */}
       <section className="bg-surface">
         <div className="max-w-screen-2xl mx-auto px-8 md:px-10">
-          <div className="rounded-2xl border border-foreground/8 h-[40vh] min-h-[300px]" style={{ backgroundImage: "url('/images/wkends-11.jpg')", backgroundSize: "cover", backgroundPosition: "center" }} />
+          <div className="rounded-2xl border border-foreground/8 h-[40vh] min-h-[300px] relative overflow-hidden">
+            <Image src="/images/wkends-11.jpg" alt="Ongoing managed IT support" fill sizes="(max-width: 1280px) 100vw, 1280px" className="object-cover" />
+          </div>
         </div>
       </section>
 
@@ -224,12 +228,12 @@ export default function ManagedITPage() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/contact"
+                <ContactButton
                   className="block text-center border border-foreground/15 text-foreground/70 px-6 py-3.5 rounded-full text-sm font-medium transition-all duration-400 hover:bg-brand-green hover:border-brand-green hover:text-white"
+                  message={CHAT.quote}
                 >
                   Get a Quote
-                </Link>
+                </ContactButton>
               </div>
             </ScrollReveal>
 
@@ -263,12 +267,12 @@ export default function ManagedITPage() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/contact"
+                <ContactButton
                   className="block text-center bg-white text-brand-green px-6 py-3.5 rounded-full text-sm font-semibold transition-all duration-400 hover:bg-white/90"
+                  message={CHAT.quote}
                 >
                   Get a Quote
-                </Link>
+                </ContactButton>
               </div>
             </ScrollReveal>
 
@@ -453,12 +457,12 @@ export default function ManagedITPage() {
                 growth.
               </p>
               <div className="flex gap-5 flex-wrap">
-                <Link
-                  href="/contact"
+                <ContactButton
                   className="inline-block bg-brand-green text-white px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-brand-green-dark hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(39,170,39,0.25)]"
+                  message={CHAT.consultation}
                 >
                   Schedule Consultation
-                </Link>
+                </ContactButton>
                 <Link
                   href="/pricing"
                   className="inline-block text-foreground/50 font-medium text-sm border-b border-foreground/20 pb-0.5 transition-all duration-500 hover:text-foreground hover:border-foreground/60"

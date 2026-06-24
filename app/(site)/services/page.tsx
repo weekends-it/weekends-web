@@ -87,7 +87,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* ===== HERO ===== */}
-      <PageHero image="/images/wkends-18.jpg">
+      <PageHero image="/images/wkends-18.jpg" alt="Weekends IT services in Brisbane">
         IT support{" "}
         <span className="text-brand-green">when and how</span> you need it.
       </PageHero>

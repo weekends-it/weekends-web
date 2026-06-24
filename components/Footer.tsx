@@ -1,12 +1,13 @@
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
+import { areas } from "@/lib/areas";
 
 export default function Footer() {
   return (
     <footer className="bg-brand-green text-white">
       <div className="max-w-7xl mx-auto px-8 md:px-16 pt-16 pb-16">
         {/* Links grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
           <div>
             <p className="text-xs font-medium uppercase tracking-widest text-white/50 mb-5">Services</p>
             <ul className="space-y-3">
@@ -14,6 +15,14 @@ export default function Footer() {
               <li><Link href="/services/retail" className="text-white/80 no-underline text-sm hover:text-white transition-colors">Retail</Link></li>
               <li><Link href="/services/home-family" className="text-white/80 no-underline text-sm hover:text-white transition-colors">Home &amp; Family</Link></li>
               <li><Link href="/services/remote-support" className="text-white/80 no-underline text-sm hover:text-white transition-colors">Remote Support</Link></li>
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs font-medium uppercase tracking-widest text-white/50 mb-5">Service areas</p>
+            <ul className="space-y-3">
+              {areas.map((a) => (
+                <li key={a.slug}><Link href={`/it-support/${a.slug}`} className="text-white/80 no-underline text-sm hover:text-white transition-colors">{a.name}</Link></li>
+              ))}
             </ul>
           </div>
           <div>

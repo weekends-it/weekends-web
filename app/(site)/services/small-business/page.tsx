@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import ContactButton from "@/components/ContactButton";
 import PageHero from "@/components/PageHero";
 import JsonLd from "@/components/JsonLd";
 import { serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
+import { CHAT } from "@/lib/chat";
 import {
   Clock,
   FileX,
@@ -34,7 +36,7 @@ export default function SmallBusinessPage() {
       <JsonLd data={serviceJsonLd({ name: "Small Business IT Support Brisbane", description: "Weekend IT support for Brisbane small businesses. Break/fix repairs, managed IT, network setup, and more — without disrupting your business hours.", path: "/services/small-business" })} />
       <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Small Business IT Support Brisbane", path: "/services/small-business" }])} />
       {/* ===== HERO ===== */}
-      <PageHero image="/images/wkends-1.jpg">
+      <PageHero image="/images/wkends-1.jpg" alt="Small business IT support in Brisbane">
         Reliable IT for your{" "}
         <span className="text-brand-green">growing business.</span>
       </PageHero>
@@ -125,7 +127,9 @@ export default function SmallBusinessPage() {
       {/* ===== IMAGE ===== */}
       <section className="bg-surface">
         <div className="max-w-screen-2xl mx-auto px-8 md:px-10">
-          <div className="rounded-2xl border border-foreground/8 h-[40vh] min-h-[300px]" style={{ backgroundImage: "url('/images/wkends-2.jpg')", backgroundSize: "cover", backgroundPosition: "center" }} />
+          <div className="rounded-2xl border border-foreground/8 h-[40vh] min-h-[300px] relative overflow-hidden">
+            <Image src="/images/wkends-2.jpg" alt="IT support for a small business" fill sizes="(max-width: 1280px) 100vw, 1280px" className="object-cover" />
+          </div>
         </div>
       </section>
 
@@ -302,12 +306,12 @@ export default function SmallBusinessPage() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/contact"
+                <ContactButton
                   className="block text-center border border-foreground/15 text-foreground/70 px-6 py-3.5 rounded-full text-sm font-medium transition-all duration-400 hover:bg-brand-green hover:border-brand-green hover:text-white"
+                  message={CHAT.quote}
                 >
                   Get a Quote
-                </Link>
+                </ContactButton>
               </div>
             </ScrollReveal>
 
@@ -341,12 +345,12 @@ export default function SmallBusinessPage() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/contact"
+                <ContactButton
                   className="block text-center bg-white text-brand-green px-6 py-3.5 rounded-full text-sm font-semibold transition-all duration-400 hover:bg-white/90"
+                  message={CHAT.quote}
                 >
                   Get a Quote
-                </Link>
+                </ContactButton>
               </div>
             </ScrollReveal>
 
@@ -461,12 +465,12 @@ export default function SmallBusinessPage() {
               <p className="text-foreground/35 text-base max-w-lg mb-14 leading-relaxed">
                 Let&apos;s talk about how we can support your business.
               </p>
-              <Link
-                href="/contact"
+              <ContactButton
                 className="inline-block bg-brand-green text-white px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-brand-green-dark hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(39,170,39,0.25)]"
+                message={CHAT.consultation}
               >
                 Schedule a Consultation
-              </Link>
+              </ContactButton>
             </div>
           </ScrollReveal>
         </div>
