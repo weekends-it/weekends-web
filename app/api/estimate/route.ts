@@ -106,7 +106,7 @@ export async function POST(req: NextRequest) {
             },
             {
               role: "user",
-              content: `Estimate how long this IT support job will take on-site. Give a realistic, typical-case estimate — a skilled technician is efficient, so don't pad the hours, and keep the range tight.
+              content: `Estimate how long this IT support job will take on-site. Give a realistic, typical-case estimate — a skilled technician is efficient, so don't pad the hours, and keep the range tight. The minimum on-site call-out is 1 hour, so never estimate below 1.
 
 Issue: ${issue}
 
@@ -170,6 +170,13 @@ Return only this JSON, no other text:
         { status: 500 }
       );
     }
+
+    // Enforce a 1-hour minimum on-site call-out (and keep max >= min).
+    estimate.minHours = Math.max(1, Number(estimate.minHours) || 1);
+    estimate.maxHours = Math.max(
+      Number(estimate.maxHours) || estimate.minHours,
+      estimate.minHours
+    );
 
     // 4. Calculate pricing
     const rate = priority === "remote" ? REMOTE_RATE : priority === "normal" ? NORMAL_RATE : EMERGENCY_RATE;
