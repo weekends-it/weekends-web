@@ -162,7 +162,7 @@ export default function HeroSection() {
           }}
         >
           <p className="text-white/80 text-[clamp(1.25rem,2.5vw,2rem)] font-light leading-relaxed max-w-xl">
-            Weekend IT support for small businesses and families.
+            After-hours and weekend IT support for small businesses and families.
           </p>
 
           <div className="flex gap-5 items-center flex-wrap mt-10">

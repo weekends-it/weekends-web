@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s | Weekends IT",
   },
   description:
-    "Weekend IT support for Brisbane homes and small businesses. Available Friday night through Sunday — no waiting until Monday. Covering Gympie to the Gold Coast.",
+    "After-hours and weekend IT support for Brisbane homes and small businesses — weeknight evenings and all weekend, no waiting until Monday. Gympie to the Gold Coast.",
   openGraph: {
     siteName: "Weekends IT",
     locale: "en_AU",

@@ -11,7 +11,7 @@ import { btnPrimary, btnGhost } from "@/lib/styles";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Weekends IT. Available Friday 6pm–2am, Saturday & Sunday 4am–2am. On-site IT support across Brisbane from Gympie to the Gold Coast.",
+    "Get in touch with Weekends IT — after-hours weeknights (Mon–Thu 6pm–2am) and weekends. On-site IT support across Brisbane, Gympie to the Gold Coast.",
   alternates: { canonical: "/contact" },
   openGraph: { title: "Contact | Weekends IT", url: "/contact", images: ["/og-image.jpg"] },
 };

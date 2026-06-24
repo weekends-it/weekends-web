@@ -6,7 +6,7 @@ export const SITE = {
   name: "Weekends IT",
   url: "https://wkends.com",
   description:
-    "Weekend IT support for Brisbane homes and small businesses. Available Friday night through Sunday — no waiting until Monday. Covering Gympie to the Gold Coast.",
+    "After-hours and weekend IT support for Brisbane homes and small businesses — weeknight evenings and all weekend, no waiting until Monday. Gympie to the Gold Coast.",
   email: "hello@wkends.com",
   logo: "https://wkends.com/images/wkends_logo.png",
   ogImage: "https://wkends.com/og-image.jpg",

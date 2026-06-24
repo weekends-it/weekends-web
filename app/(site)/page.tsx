@@ -22,14 +22,14 @@ import { services } from "@/lib/services";
 import { btnPrimary, btnOutline, btnWhite, btnGhost } from "@/lib/styles";
 
 export const metadata: Metadata = {
-  title: { absolute: "Weekends IT — Weekend IT Support Brisbane" },
+  title: { absolute: "Weekends IT — After-Hours & Weekend IT Support Brisbane" },
   description:
-    "On-site IT support available Friday 6pm–2am, Saturday & Sunday 4am–2am. Break/fix from $85/hr, remote support from $70/hr. Covering Gympie to the Gold Coast.",
+    "After-hours & weekend IT support in Brisbane — weeknight evenings (Mon–Thu 6pm–2am) plus all weekend. Break/fix from $85/hr, remote support from $70/hr.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Weekends IT — Weekend IT Support Brisbane",
+    title: "Weekends IT — After-Hours & Weekend IT Support Brisbane",
     description:
-      "On-site IT support available Friday 6pm–2am, Saturday & Sunday 4am–2am. Break/fix from $85/hr, remote support from $70/hr. Covering Gympie to the Gold Coast.",
+      "After-hours & weekend IT support in Brisbane — weeknight evenings (Mon–Thu 6pm–2am) plus all weekend. Break/fix from $85/hr, remote support from $70/hr.",
     url: "/",
     images: ["/og-image.jpg"],
   },
@@ -48,7 +48,7 @@ export default function HomePage() {
             <div className="mb-16 md:mb-20">
               <p className="label-section mb-6">The problem</p>
               <h2 className="heading-serif text-[clamp(2.5rem,4.5vw,4.5rem)] text-foreground max-w-3xl">
-                Technology breaks on weekends. IT support usually doesn&apos;t work then.
+                Technology breaks after hours and on weekends. IT support usually doesn&apos;t work then.
               </h2>
             </div>
           </ScrollReveal>
@@ -57,9 +57,9 @@ export default function HomePage() {
             {[
               {
                 icon: Laptop,
-                title: "Saturday afternoon",
+                title: "Tuesday night",
                 description:
-                  "Your computer crashes and Monday's deadline isn't moving.",
+                  "Your computer crashes and tomorrow's deadline isn't moving.",
               },
               {
                 icon: Store,
@@ -126,7 +126,7 @@ export default function HomePage() {
                 IT support that works around your schedule and budget.
               </h2>
               <p className="text-foreground/35 text-sm max-w-lg leading-relaxed">
-                We provide expert IT support on weekends with flexible service
+                We provide expert IT support after hours and on weekends with flexible service
                 options. Whether you need one-time help or ongoing managed
                 support, we&apos;ve got you covered.
               </p>
@@ -145,7 +145,7 @@ export default function HomePage() {
                 step: "02",
                 title: "We show up when you need us",
                 description:
-                  "Weekend availability means you get help when problems actually happen, not just during business hours.",
+                  "Evening and weekend availability means you get help when problems actually happen, not just during business hours.",
               },
               {
                 step: "03",
@@ -256,7 +256,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-8 md:px-16 py-16 md:py-20">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { icon: CalendarDays, value: "7/7", label: "Weekend Coverage" },
+              { icon: CalendarDays, value: "7/7", label: "Days Covered" },
               { icon: Zap, value: "< 2hr", label: "Emergency Response" },
               { icon: ThumbsUp, value: "100%", label: "Satisfaction Rate" },
               { icon: Banknote, value: "$0", label: "Contract Fees" },
