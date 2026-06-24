@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 import HeroHeadline from "./HeroHeadline";
+import { btnPrimary } from "@/lib/styles";
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -167,7 +168,7 @@ export default function HeroSection() {
           <div className="flex gap-5 items-center flex-wrap mt-10">
             <Link
               href="/get-started"
-              className="group relative bg-brand-green text-white px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-brand-green-dark hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(39,170,39,0.25)] overflow-hidden"
+              className={`group relative ${btnPrimary} overflow-hidden`}
             >
               <span className="relative z-10">Get Started</span>
               <span className="absolute inset-0 bg-brand-green-dark scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100" />

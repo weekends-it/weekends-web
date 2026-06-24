@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import ContactButton from "@/components/ContactButton";
 import PageHero from "@/components/PageHero";
 import JsonLd from "@/components/JsonLd";
+import ImageBand from "@/components/ImageBand";
+import { btnPrimary, btnGhost } from "@/lib/styles";
+import { CHAT } from "@/lib/chat";
 import { serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import {
   Laptop,
@@ -53,6 +56,13 @@ export default function RemoteSupportPage() {
                 </strong>{" "}
                 &mdash; saving you time and money.
               </p>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <ContactButton className={btnGhost} message={CHAT.quote}>
+                Get a quote →
+              </ContactButton>
             </div>
           </ScrollReveal>
         </div>
@@ -118,15 +128,21 @@ export default function RemoteSupportPage() {
               shouldn&apos;t have to wait days or pay travel fees.
             </p>
           </ScrollReveal>
+
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <ContactButton className={btnGhost} message={CHAT.question}>
+                Get help now →
+              </ContactButton>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* ===== IMAGE ===== */}
       <section className="bg-surface">
         <div className="max-w-screen-2xl mx-auto px-8 md:px-10">
-          <div className="rounded-2xl border border-foreground/8 h-[40vh] min-h-[300px] relative overflow-hidden">
-            <Image src="/images/wkends-6.jpg" alt="Remote IT troubleshooting session" fill sizes="(max-width: 1280px) 100vw, 1280px" className="object-cover" />
-          </div>
+          <ImageBand src="/images/wkends-6.jpg" alt="Remote IT troubleshooting session" />
         </div>
       </section>
 
@@ -183,6 +199,14 @@ export default function RemoteSupportPage() {
               </ScrollReveal>
             ))}
           </div>
+
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <Link href="/get-started" className={`inline-block ${btnGhost}`}>
+                Get an estimate →
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -252,6 +276,14 @@ export default function RemoteSupportPage() {
               </ScrollReveal>
             ))}
           </div>
+
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <Link href="/get-started" className={`inline-block ${btnPrimary}`}>
+                Get an estimate
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -318,6 +350,14 @@ export default function RemoteSupportPage() {
               </div>
             </ScrollReveal>
           </div>
+
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <Link href="/get-started" className={`inline-block ${btnGhost}`}>
+                Get an estimate →
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -334,7 +374,7 @@ export default function RemoteSupportPage() {
               </p>
               <Link
                 href="/get-started"
-                className="inline-block bg-brand-green text-white px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-brand-green-dark hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(39,170,39,0.25)]"
+                className={`inline-block ${btnPrimary}`}
               >
                 Get an Estimate
               </Link>

@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
 import JsonLd from "@/components/JsonLd";
+import ImageBand from "@/components/ImageBand";
+import CtaSection from "@/components/CtaSection";
+import ContactButton from "@/components/ContactButton";
+import { btnPrimary, btnGhost } from "@/lib/styles";
+import { CHAT } from "@/lib/chat";
 import { serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import {
   HardDrive,
@@ -52,6 +56,13 @@ export default function SecurityBackupPage() {
                 </strong>
                 . Get practical, effective protection before it&apos;s too late.
               </p>
+              <ScrollReveal delay={200}>
+                <div className="mt-10">
+                  <ContactButton className={btnGhost} message={CHAT.quote}>
+                    Get a quote →
+                  </ContactButton>
+                </div>
+              </ScrollReveal>
             </div>
           </ScrollReveal>
         </div>
@@ -119,15 +130,21 @@ export default function SecurityBackupPage() {
               protection.
             </p>
           </ScrollReveal>
+
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <ContactButton className={btnGhost} message={CHAT.question}>
+                Get help now →
+              </ContactButton>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* ===== IMAGE ===== */}
       <section className="bg-surface">
         <div className="max-w-screen-2xl mx-auto px-8 md:px-10">
-          <div className="rounded-2xl border border-foreground/8 h-[40vh] min-h-[300px] relative overflow-hidden">
-            <Image src="/images/wkends-9.jpg" alt="Data backup and security setup" fill sizes="(max-width: 1280px) 100vw, 1280px" className="object-cover" />
-          </div>
+          <ImageBand src="/images/wkends-9.jpg" alt="Data backup and security setup" />
         </div>
       </section>
 
@@ -185,6 +202,14 @@ export default function SecurityBackupPage() {
               </ScrollReveal>
             ))}
           </div>
+
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <Link href="/get-started" className={`inline-block ${btnGhost}`}>
+                Get an estimate →
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -254,6 +279,14 @@ export default function SecurityBackupPage() {
               </ScrollReveal>
             ))}
           </div>
+
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <Link href="/get-started" className={`inline-block ${btnPrimary}`}>
+                Get an estimate
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -322,30 +355,27 @@ export default function SecurityBackupPage() {
               </div>
             </ScrollReveal>
           </div>
-        </div>
-      </section>
 
-      {/* ===== CTA ===== */}
-      <section className="bg-surface border-t border-foreground/5">
-        <div className="max-w-7xl mx-auto px-8 md:px-16 py-28 md:py-40">
-          <ScrollReveal>
-            <div className="max-w-4xl">
-              <h2 className="heading-display text-[clamp(3rem,6vw,6.5rem)] text-foreground mb-10 max-w-3xl">
-                Don&apos;t wait for disaster to strike.
-              </h2>
-              <p className="text-foreground/35 text-base max-w-lg mb-14 leading-relaxed">
-                Let&apos;s protect your business with tested backup and security.
-              </p>
-              <Link
-                href="/get-started"
-                className="inline-block bg-brand-green text-white px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-brand-green-dark hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(39,170,39,0.25)]"
-              >
-                Get an Estimate
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <Link href="/get-started" className={`inline-block ${btnGhost}`}>
+                Get an estimate →
               </Link>
             </div>
           </ScrollReveal>
         </div>
       </section>
+
+      {/* ===== CTA ===== */}
+      <CtaSection
+        heading={<>Don&apos;t wait for disaster to strike.</>}
+        body={<>Let&apos;s protect your business with tested backup and security.</>}
+        className="bg-surface border-t border-foreground/5"
+      >
+        <Link href="/get-started" className={`inline-block ${btnPrimary}`}>
+          Get an Estimate
+        </Link>
+      </CtaSection>
     </>
   );
 }

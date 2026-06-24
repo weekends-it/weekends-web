@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import ContactButton from "@/components/ContactButton";
 import { CHAT } from "@/lib/chat";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
+import CtaSection from "@/components/CtaSection";
+import { btnPrimary, btnGhost } from "@/lib/styles";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -79,6 +82,14 @@ export default function AboutPage() {
               </p>
             </div>
           </ScrollReveal>
+
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <ContactButton className={btnGhost} message={CHAT.getInTouch}>
+                Get in touch →
+              </ContactButton>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -142,6 +153,14 @@ export default function AboutPage() {
               </ScrollReveal>
             ))}
           </div>
+
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <ContactButton className={btnGhost} message={CHAT.getInTouch}>
+                Get in touch →
+              </ContactButton>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -187,6 +206,14 @@ export default function AboutPage() {
               </ScrollReveal>
             ))}
           </div>
+
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <Link href="/get-started" className={`inline-block ${btnPrimary}`}>
+                Get an estimate
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -264,27 +291,23 @@ export default function AboutPage() {
       </section>
 
       {/* ===== CTA ===== */}
-      <section className="bg-surface border-t border-foreground/5">
-        <div className="max-w-7xl mx-auto px-8 md:px-16 py-28 md:py-40">
-          <ScrollReveal>
-            <div className="max-w-4xl">
-              <h2 className="heading-display text-[clamp(3rem,6vw,6.5rem)] text-foreground mb-10 max-w-3xl">
-                Ready to work together?
-              </h2>
-              <p className="text-foreground/35 text-base max-w-lg mb-14 leading-relaxed">
-                Let&apos;s solve your technology challenges and get you back to
-                focusing on what matters most.
-              </p>
-              <ContactButton
-                className="inline-block bg-brand-green text-white px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-brand-green-dark hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(39,170,39,0.25)]"
-                message={CHAT.getInTouch}
-              >
-                Get in Touch
-              </ContactButton>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+      <CtaSection
+        heading={<>Ready to work together?</>}
+        body={
+          <>
+            Let&apos;s solve your technology challenges and get you back to
+            focusing on what matters most.
+          </>
+        }
+        className="bg-surface border-t border-foreground/5"
+      >
+        <ContactButton
+          className={`inline-block ${btnPrimary}`}
+          message={CHAT.getInTouch}
+        >
+          Get in Touch
+        </ContactButton>
+      </CtaSection>
     </>
   );
 }

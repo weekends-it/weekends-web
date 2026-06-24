@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Suspense } from "react";
 import ContactForm from "@/components/ContactForm";
 import ContactButton from "@/components/ContactButton";
 import { CHAT } from "@/lib/chat";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
+import ImageBand from "@/components/ImageBand";
+import { btnPrimary, btnGhost } from "@/lib/styles";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -50,7 +51,7 @@ export default function ContactPage() {
                     <p className="text-foreground/30 text-xs uppercase tracking-widest font-medium mb-4">
                       Live chat
                     </p>
-                    <ContactButton className="inline-block bg-brand-green text-white px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-brand-green-dark hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(39,170,39,0.25)]">
+                    <ContactButton className={`inline-block ${btnPrimary}`}>
                       Chat with us now
                     </ContactButton>
                   </div>
@@ -155,9 +156,7 @@ export default function ContactPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={60}>
-            <div className="rounded-2xl border border-foreground/8 h-[35vh] min-h-[250px] mb-16 md:mb-20 relative overflow-hidden">
-              <Image src="/images/wkends-21.jpg" alt="Weekend IT support in Brisbane" fill sizes="(max-width: 1280px) 100vw, 1280px" className="object-cover" />
-            </div>
+            <ImageBand src="/images/wkends-21.jpg" alt="Weekend IT support in Brisbane" className="h-[35vh] min-h-[250px] mb-16 md:mb-20" />
           </ScrollReveal>
 
           <div className="grid md:grid-cols-3 gap-4">
@@ -187,6 +186,13 @@ export default function ContactPage() {
               </ScrollReveal>
             ))}
           </div>
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <ContactButton className={btnGhost} message={CHAT.getInTouch}>
+                Check your area &rarr;
+              </ContactButton>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -205,7 +211,7 @@ export default function ContactPage() {
               </p>
               <div className="flex gap-5 flex-wrap">
                 <ContactButton
-                  className="bg-brand-green text-white px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-brand-green-dark hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(39,170,39,0.25)]"
+                  className={btnPrimary}
                   message={CHAT.question}
                 >
                   Chat with us now

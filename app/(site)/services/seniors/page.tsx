@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
 import JsonLd from "@/components/JsonLd";
 import ContactButton from "@/components/ContactButton";
+import ImageBand from "@/components/ImageBand";
+import CtaSection from "@/components/CtaSection";
+import { btnPrimary, btnGhost, btnWhite } from "@/lib/styles";
 import { CHAT } from "@/lib/chat";
 import { serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import {
@@ -54,6 +56,13 @@ export default function SeniorsPage() {
                 , without jargon, without rushing, and without ever making you
                 feel foolish for asking.
               </p>
+              <ScrollReveal delay={200}>
+                <div className="mt-10">
+                  <ContactButton className={btnGhost} message={CHAT.quote}>
+                    Get a quote →
+                  </ContactButton>
+                </div>
+              </ScrollReveal>
             </div>
           </ScrollReveal>
         </div>
@@ -120,15 +129,21 @@ export default function SeniorsPage() {
               foolish.
             </p>
           </ScrollReveal>
+
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <ContactButton className={btnGhost} message={CHAT.question}>
+                Get help now →
+              </ContactButton>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* ===== IMAGE ===== */}
       <section className="bg-surface">
         <div className="max-w-screen-2xl mx-auto px-8 md:px-10">
-          <div className="rounded-2xl border border-foreground/8 h-[40vh] min-h-[300px] relative overflow-hidden">
-            <Image src="/images/wkends-23.jpg" alt="Friendly technology help for a senior" fill sizes="(max-width: 1280px) 100vw, 1280px" className="object-cover" />
-          </div>
+          <ImageBand src="/images/wkends-23.jpg" alt="Friendly technology help for a senior" />
         </div>
       </section>
 
@@ -186,6 +201,14 @@ export default function SeniorsPage() {
               </ScrollReveal>
             ))}
           </div>
+
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <Link href="/get-started" className={`inline-block ${btnGhost}`}>
+                Get an estimate →
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -255,6 +278,14 @@ export default function SeniorsPage() {
               </ScrollReveal>
             ))}
           </div>
+
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <Link href="/get-started" className={`inline-block ${btnGhost}`}>
+                Get an estimate →
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -326,6 +357,14 @@ export default function SeniorsPage() {
               </div>
             </ScrollReveal>
           </div>
+
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <Link href="/get-started" className={`inline-block ${btnGhost}`}>
+                Get an estimate →
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -378,7 +417,7 @@ export default function SeniorsPage() {
                 </ul>
                 <Link
                   href="/get-started"
-                  className="block text-center bg-white text-brand-green px-6 py-3.5 rounded-full text-sm font-semibold transition-all duration-400 hover:bg-white/90"
+                  className={`block text-center ${btnWhite}`}
                 >
                   Get an Estimate
                 </Link>
@@ -459,6 +498,13 @@ export default function SeniorsPage() {
                 communities. We use the same technician for every visit so your
                 parent sees a familiar face.
               </p>
+              <ScrollReveal delay={200}>
+                <div className="mt-10">
+                  <ContactButton className={btnGhost} message={CHAT.quote}>
+                    Get a quote →
+                  </ContactButton>
+                </div>
+              </ScrollReveal>
             </div>
           </ScrollReveal>
         </div>
@@ -529,6 +575,14 @@ export default function SeniorsPage() {
               </div>
             </ScrollReveal>
           </div>
+
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <Link href="/get-started" className={`inline-block ${btnGhost}`}>
+                Get an estimate →
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -556,7 +610,7 @@ export default function SeniorsPage() {
                   <span className="text-foreground/40 text-sm">/ session, on-site</span>
                 </div>
                 <ContactButton
-                  className="inline-block bg-brand-green text-white px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-brand-green-dark hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(39,170,39,0.25)]"
+                  className={`inline-block ${btnPrimary}`}
                   message={CHAT.groupBooking}
                 >
                   Book a group session
@@ -593,35 +647,26 @@ export default function SeniorsPage() {
       </section>
 
       {/* ===== CTA ===== */}
-      <section className="bg-surface border-t border-foreground/5">
-        <div className="max-w-7xl mx-auto px-8 md:px-16 py-28 md:py-40">
-          <ScrollReveal>
-            <div className="max-w-4xl">
-              <h2 className="heading-display text-[clamp(3rem,6vw,6.5rem)] text-foreground mb-10 max-w-3xl">
-                You deserve patient, respectful tech help.
-              </h2>
-              <p className="text-foreground/35 text-base max-w-lg mb-14 leading-relaxed">
-                Let&apos;s make technology work for you — at your pace, with
-                clear explanations every step of the way.
-              </p>
-              <div className="flex gap-5 flex-wrap">
-                <Link
-                  href="/get-started"
-                  className="inline-block bg-brand-green text-white px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-brand-green-dark hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(39,170,39,0.25)]"
-                >
-                  Get an Estimate
-                </Link>
-                <ContactButton
-                  className="inline-block text-foreground/50 font-medium text-sm border-b border-foreground/20 pb-0.5 transition-all duration-500 hover:text-foreground hover:border-foreground/60"
-                  message={CHAT.getInTouch}
-                >
-                  Call Us to Talk
-                </ContactButton>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+      <CtaSection
+        heading={<>You deserve patient, respectful tech help.</>}
+        body={
+          <>
+            Let&apos;s make technology work for you — at your pace, with
+            clear explanations every step of the way.
+          </>
+        }
+        className="bg-surface border-t border-foreground/5"
+      >
+        <Link href="/get-started" className={`inline-block ${btnPrimary}`}>
+          Get an Estimate
+        </Link>
+        <ContactButton
+          className={`inline-block ${btnGhost}`}
+          message={CHAT.getInTouch}
+        >
+          Call Us to Talk
+        </ContactButton>
+      </CtaSection>
     </>
   );
 }

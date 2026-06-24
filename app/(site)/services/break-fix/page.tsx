@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import ContactButton from "@/components/ContactButton";
 import PageHero from "@/components/PageHero";
 import JsonLd from "@/components/JsonLd";
+import ImageBand from "@/components/ImageBand";
+import CtaSection from "@/components/CtaSection";
+import { btnPrimary, btnGhost } from "@/lib/styles";
+import { CHAT } from "@/lib/chat";
 import { serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import {
   Laptop,
@@ -50,6 +54,13 @@ export default function BreakFixPage() {
                 — you just want quality help when problems happen, without
                 being locked into anything.
               </p>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <ContactButton className={btnGhost} message={CHAT.quote}>
+                Get a quote →
+              </ContactButton>
             </div>
           </ScrollReveal>
         </div>
@@ -116,15 +127,21 @@ export default function BreakFixPage() {
               help when problems arise, without monthly commitments.
             </p>
           </ScrollReveal>
+
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <ContactButton className={btnGhost} message={CHAT.question}>
+                Get help now →
+              </ContactButton>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* ===== IMAGE ===== */}
       <section className="bg-surface">
         <div className="max-w-screen-2xl mx-auto px-8 md:px-10">
-          <div className="rounded-2xl border border-foreground/8 h-[40vh] min-h-[300px] relative overflow-hidden">
-            <Image src="/images/wkends-4.jpg" alt="On-site computer repair" fill sizes="(max-width: 1280px) 100vw, 1280px" className="object-cover" />
-          </div>
+          <ImageBand src="/images/wkends-4.jpg" alt="On-site computer repair" />
         </div>
       </section>
 
@@ -182,6 +199,14 @@ export default function BreakFixPage() {
               </ScrollReveal>
             ))}
           </div>
+
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <Link href="/get-started" className={`inline-block ${btnGhost}`}>
+                Get an estimate →
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -239,6 +264,14 @@ export default function BreakFixPage() {
               </ScrollReveal>
             ))}
           </div>
+
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <Link href="/get-started" className={`inline-block ${btnPrimary}`}>
+                Get an estimate
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -305,38 +338,36 @@ export default function BreakFixPage() {
               </div>
             </ScrollReveal>
           </div>
-        </div>
-      </section>
 
-      {/* ===== CTA ===== */}
-      <section className="bg-surface border-t border-foreground/5">
-        <div className="max-w-7xl mx-auto px-8 md:px-16 py-28 md:py-40">
-          <ScrollReveal>
-            <div className="max-w-4xl">
-              <h2 className="heading-display text-[clamp(3rem,6vw,6.5rem)] text-foreground mb-10 max-w-3xl">
-                Need help now? No contract required.
-              </h2>
-              <p className="text-foreground/35 text-base max-w-lg mb-14 leading-relaxed">
-                Get expert IT support when you need it.
-              </p>
-              <div className="flex gap-5 flex-wrap">
-                <Link
-                  href="/get-started"
-                  className="inline-block bg-brand-green text-white px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-brand-green-dark hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(39,170,39,0.25)]"
-                >
-                  Get an Estimate
-                </Link>
-                <Link
-                  href="/pricing"
-                  className="inline-block text-foreground/50 font-medium text-sm border-b border-foreground/20 pb-0.5 transition-all duration-500 hover:text-foreground hover:border-foreground/60"
-                >
-                  See Pricing
-                </Link>
-              </div>
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <Link href="/get-started" className={`inline-block ${btnGhost}`}>
+                Get an estimate →
+              </Link>
             </div>
           </ScrollReveal>
         </div>
       </section>
+
+      {/* ===== CTA ===== */}
+      <CtaSection
+        heading={<>Need help now? No contract required.</>}
+        body={<>Get expert IT support when you need it.</>}
+        className="bg-surface border-t border-foreground/5"
+      >
+        <Link
+          href="/get-started"
+          className={`inline-block ${btnPrimary}`}
+        >
+          Get an Estimate
+        </Link>
+        <Link
+          href="/pricing"
+          className={`inline-block ${btnGhost}`}
+        >
+          See Pricing
+        </Link>
+      </CtaSection>
     </>
   );
 }

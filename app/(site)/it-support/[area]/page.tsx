@@ -8,6 +8,8 @@ import JsonLd from "@/components/JsonLd";
 import { CHAT } from "@/lib/chat";
 import { SITE, breadcrumbJsonLd } from "@/lib/seo";
 import { areas, getArea } from "@/lib/areas";
+import CtaSection from "@/components/CtaSection";
+import { btnPrimary, btnGhost } from "@/lib/styles";
 
 export const dynamicParams = false;
 
@@ -102,6 +104,13 @@ export default async function AreaPage({
               </p>
             </div>
           </ScrollReveal>
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <Link href="/get-started" className={`inline-block ${btnPrimary}`}>
+                Get an estimate
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -141,36 +150,23 @@ export default async function AreaPage({
       </section>
 
       {/* ===== CTA ===== */}
-      <section className="bg-surface border-t border-foreground/5">
-        <div className="max-w-7xl mx-auto px-8 md:px-16 py-28 md:py-40">
-          <ScrollReveal>
-            <div className="max-w-4xl">
-              <h2 className="heading-display text-[clamp(3rem,6vw,6.5rem)] text-foreground mb-10 max-w-3xl">
-                Need a hand this weekend?
-              </h2>
-              <p className="text-foreground/35 text-base max-w-lg mb-14 leading-relaxed">
-                Tell us what&apos;s going on {area.connector} {area.name} and
-                we&apos;ll sort it — on-site or remote, Friday night through
-                Sunday.
-              </p>
-              <div className="flex gap-5 flex-wrap">
-                <ContactButton
-                  className="bg-brand-green text-white px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-brand-green-dark hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(39,170,39,0.25)]"
-                  message={CHAT.getInTouch}
-                >
-                  Chat with us now
-                </ContactButton>
-                <Link
-                  href="/get-started"
-                  className="inline-block text-foreground/50 font-medium text-sm border-b border-foreground/20 pb-0.5 transition-all duration-500 hover:text-foreground hover:border-foreground/60"
-                >
-                  Get an estimate
-                </Link>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+      <CtaSection
+        heading={<>Need a hand this weekend?</>}
+        body={
+          <>
+            Tell us what&apos;s going on {area.connector} {area.name} and
+            we&apos;ll sort it — on-site or remote, Friday night through Sunday.
+          </>
+        }
+        className="bg-surface border-t border-foreground/5"
+      >
+        <ContactButton className={btnPrimary} message={CHAT.getInTouch}>
+          Chat with us now
+        </ContactButton>
+        <Link href="/get-started" className={`inline-block ${btnGhost}`}>
+          Get an estimate
+        </Link>
+      </CtaSection>
     </>
   );
 }

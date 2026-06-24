@@ -3,18 +3,11 @@ import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import ContactButton from "@/components/ContactButton";
 import PageHero from "@/components/PageHero";
-import {
-  Building2,
-  ShoppingCart,
-  Home,
-  Heart,
-  Monitor,
-  Shield,
-  Wrench,
-  Package,
-  Check,
-  ChevronRight,
-} from "lucide-react";
+import CtaSection from "@/components/CtaSection";
+import { Check, ChevronRight } from "lucide-react";
+import { services } from "@/lib/services";
+import { CHAT } from "@/lib/chat";
+import { btnPrimary, btnGhost } from "@/lib/styles";
 
 export const metadata: Metadata = {
   title: "IT Services",
@@ -23,65 +16,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "/services" },
   openGraph: { title: "IT Services | Weekends IT", url: "/services", images: ["/og-image.jpg"] },
 };
-
-const services = [
-  {
-    icon: Building2,
-    title: "Small Business IT",
-    description:
-      "Managed IT, network setup, server support & email systems.",
-    href: "/services/small-business",
-  },
-  {
-    icon: ShoppingCart,
-    title: "Retail Solutions",
-    description:
-      "POS systems, payment terminals, inventory & customer WiFi.",
-    href: "/services/retail",
-  },
-  {
-    icon: Home,
-    title: "Home & Family",
-    description:
-      "Computer repair, virus removal, smart home & data backup.",
-    href: "/services/home-family",
-  },
-  {
-    icon: Heart,
-    title: "Seniors",
-    description:
-      "Patient, jargon-free tech help at your pace. Senior discounts available.",
-    href: "/services/seniors",
-  },
-  {
-    icon: Monitor,
-    title: "Remote Support",
-    description:
-      "Screen sharing, software troubleshooting & configuration help.",
-    href: "/services/remote-support",
-  },
-  {
-    icon: Shield,
-    title: "Security & Backup",
-    description:
-      "Backup solutions, disaster recovery & cybersecurity setup.",
-    href: "/services/security-backup",
-  },
-  {
-    icon: Wrench,
-    title: "Break / Fix",
-    description:
-      "One-time repairs with no contracts, no fuss, fast help.",
-    href: "/services/break-fix",
-  },
-  {
-    icon: Package,
-    title: "Procurement & IT Purchasing",
-    description:
-      "Wholesale pricing on hardware & software — 20–40% below retail.",
-    href: "/services/procurement",
-  },
-];
 
 export default function ServicesPage() {
   return (
@@ -105,6 +39,14 @@ export default function ServicesPage() {
                 </strong>
                 . No rigid contracts, no corporate budgets required.
               </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <Link href="/get-started" className={`inline-block ${btnPrimary}`}>
+                Get an estimate
+              </Link>
             </div>
           </ScrollReveal>
         </div>
@@ -246,38 +188,39 @@ export default function ServicesPage() {
               </ScrollReveal>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* ===== CTA ===== */}
-      <section className="bg-surface-dark border-t border-foreground/5">
-        <div className="max-w-7xl mx-auto px-8 md:px-16 py-28 md:py-40">
-          <ScrollReveal>
-            <div className="max-w-4xl">
-              <h2 className="heading-display text-[clamp(3rem,6vw,6.5rem)] text-foreground mb-10 max-w-3xl">
-                Transparent pricing that makes sense.
-              </h2>
-              <p className="text-foreground/35 text-base max-w-lg mb-14 leading-relaxed">
-                From $85/hr break-fix to $499/mo managed IT. No contracts, no
-                surprises.
-              </p>
-              <div className="flex gap-5 flex-wrap">
-                <Link
-                  href="/pricing"
-                  className="bg-brand-green text-white px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-brand-green-dark hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(39,170,39,0.25)]"
-                >
-                  View Pricing
-                </Link>
-                <ContactButton
-                  className="text-foreground/50 font-medium text-sm border-b border-foreground/20 pb-0.5 transition-all duration-500 hover:text-foreground hover:border-foreground/60"
-                >
-                  Chat with us now
-                </ContactButton>
-              </div>
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <ContactButton className={btnGhost} message={CHAT.quote}>
+                Get a quote →
+              </ContactButton>
             </div>
           </ScrollReveal>
         </div>
       </section>
+
+      {/* ===== CTA ===== */}
+      <CtaSection
+        heading={<>Transparent pricing that makes sense.</>}
+        body={
+          <>
+            From $85/hr break-fix to $499/mo managed IT. No contracts, no
+            surprises.
+          </>
+        }
+      >
+        <Link
+          href="/pricing"
+          className={btnPrimary}
+        >
+          View Pricing
+        </Link>
+        <ContactButton
+          className={btnGhost}
+        >
+          Chat with us now
+        </ContactButton>
+      </CtaSection>
     </>
   );
 }

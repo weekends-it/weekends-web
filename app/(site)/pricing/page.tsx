@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import ContactButton from "@/components/ContactButton";
 import { CHAT } from "@/lib/chat";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
+import ImageBand from "@/components/ImageBand";
+import CtaSection from "@/components/CtaSection";
+import { btnPrimary, btnOutline, btnWhite, btnGhost } from "@/lib/styles";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -35,6 +37,13 @@ export default function PricingPage() {
                 </strong>
                 . No hidden fees, no surprise charges.
               </p>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <Link href="/get-started" className={`inline-block ${btnPrimary}`}>
+                Get an estimate
+              </Link>
             </div>
           </ScrollReveal>
         </div>
@@ -83,7 +92,7 @@ export default function PricingPage() {
                 </ul>
                 <Link
                   href="/get-started"
-                  className="block text-center border border-foreground/15 text-foreground/70 px-6 py-3.5 rounded-full text-sm font-medium transition-all duration-400 hover:bg-brand-green hover:border-brand-green hover:text-white"
+                  className={`block text-center ${btnOutline}`}
                 >
                   Get an Estimate
                 </Link>
@@ -119,7 +128,7 @@ export default function PricingPage() {
                 </ul>
                 <Link
                   href="/get-started"
-                  className="block text-center border border-foreground/15 text-foreground/70 px-6 py-3.5 rounded-full text-sm font-medium transition-all duration-400 hover:bg-brand-green hover:border-brand-green hover:text-white"
+                  className={`block text-center ${btnOutline}`}
                 >
                   Get an Estimate
                 </Link>
@@ -155,7 +164,7 @@ export default function PricingPage() {
                 </ul>
                 <Link
                   href="/get-started"
-                  className="block text-center border border-foreground/15 text-foreground/70 px-6 py-3.5 rounded-full text-sm font-medium transition-all duration-400 hover:bg-brand-green hover:border-brand-green hover:text-white"
+                  className={`block text-center ${btnOutline}`}
                 >
                   Get an Estimate
                 </Link>
@@ -196,7 +205,7 @@ export default function PricingPage() {
                   ))}
                 </ul>
                 <ContactButton
-                  className="block w-full text-center bg-white text-brand-green px-6 py-3.5 rounded-full text-sm font-semibold transition-all duration-400 hover:bg-white/90"
+                  className={`block w-full text-center ${btnWhite}`}
                   message={CHAT.getStarted}
                 >
                   Get Started
@@ -210,9 +219,7 @@ export default function PricingPage() {
       {/* ===== IMAGE ===== */}
       <section className="bg-surface-dark">
         <div className="max-w-screen-2xl mx-auto px-8 md:px-10 pb-28 md:pb-40">
-          <div className="rounded-2xl border border-foreground/8 h-[35vh] min-h-[250px] relative overflow-hidden">
-            <Image src="/images/wkends-24.jpg" alt="On-site IT support in Brisbane" fill sizes="(max-width: 1280px) 100vw, 1280px" className="object-cover" />
-          </div>
+          <ImageBand src="/images/wkends-24.jpg" alt="On-site IT support in Brisbane" className="h-[35vh] min-h-[250px]" />
         </div>
       </section>
 
@@ -288,6 +295,13 @@ export default function PricingPage() {
               </ScrollReveal>
             ))}
           </div>
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <Link href="/get-started" className={`inline-block ${btnGhost}`}>
+                Get an estimate &rarr;
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -401,33 +415,30 @@ export default function PricingPage() {
               </div>
             </ScrollReveal>
           </div>
-        </div>
-      </section>
-
-      {/* ===== CTA ===== */}
-      <section className="bg-surface-dark border-t border-foreground/5">
-        <div className="max-w-7xl mx-auto px-8 md:px-16 py-28 md:py-40">
-          <ScrollReveal>
-            <div className="max-w-4xl">
-              <h2 className="heading-display text-[clamp(3rem,6vw,6.5rem)] text-foreground mb-10 max-w-3xl">
-                Get your custom quote.
-              </h2>
-              <p className="text-foreground/35 text-base max-w-lg mb-14 leading-relaxed">
-                Every business is different. Let&apos;s talk about what you need
-                and find the right solution for your budget.
-              </p>
-              <div className="flex gap-5 flex-wrap">
-                <Link
-                  href="/get-started"
-                  className="bg-brand-green text-white px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-brand-green-dark hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(39,170,39,0.25)]"
-                >
-                  Get an Estimate
-                </Link>
-              </div>
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <ContactButton className={btnGhost} message={CHAT.question}>
+                Still have questions? Chat with us &rarr;
+              </ContactButton>
             </div>
           </ScrollReveal>
         </div>
       </section>
+
+      {/* ===== CTA ===== */}
+      <CtaSection
+        heading={<>Get your custom quote.</>}
+        body={
+          <>
+            Every business is different. Let&apos;s talk about what you need and
+            find the right solution for your budget.
+          </>
+        }
+      >
+        <Link href="/get-started" className={btnPrimary}>
+          Get an Estimate
+        </Link>
+      </CtaSection>
     </>
   );
 }

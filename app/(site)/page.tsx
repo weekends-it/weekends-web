@@ -14,18 +14,12 @@ import {
   Zap,
   ThumbsUp,
   Banknote,
-  Building2,
-  ShoppingCart,
-  Home,
-  Heart,
-  Monitor,
-  Shield,
-  Wrench,
-  Package,
   Check,
   X,
   ChevronRight,
 } from "lucide-react";
+import { services } from "@/lib/services";
+import { btnPrimary, btnOutline, btnWhite, btnGhost } from "@/lib/styles";
 
 export const metadata: Metadata = {
   title: { absolute: "Weekends IT — Weekend IT Support Brisbane" },
@@ -108,6 +102,14 @@ export default function HomePage() {
               breaking the bank or waiting days for help.
             </p>
           </ScrollReveal>
+
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <ContactButton className={btnGhost} message={CHAT.question}>
+                Get help now →
+              </ContactButton>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -172,7 +174,7 @@ export default function HomePage() {
             <div className="mt-14">
               <Link
                 href="/get-started"
-                className="bg-brand-green text-white px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-brand-green-dark hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(39,170,39,0.25)]"
+                className={btnPrimary}
               >
                 Get Started Today
               </Link>
@@ -238,6 +240,14 @@ export default function HomePage() {
               </div>
             </ScrollReveal>
           </div>
+
+          <ScrollReveal delay={200}>
+            <div className="mt-10">
+              <Link href="/get-started" className={`inline-block ${btnGhost}`}>
+                Get an estimate →
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -283,64 +293,7 @@ export default function HomePage() {
           </ScrollReveal>
 
           <div className="grid md:grid-cols-2 gap-4">
-            {[
-              {
-                icon: Building2,
-                title: "Small Business IT",
-                description:
-                  "Managed IT, network setup, server support & email systems.",
-                href: "/services/small-business",
-              },
-              {
-                icon: ShoppingCart,
-                title: "Retail Solutions",
-                description:
-                  "POS systems, payment terminals, inventory & customer WiFi.",
-                href: "/services/retail",
-              },
-              {
-                icon: Home,
-                title: "Home & Family",
-                description:
-                  "Computer repair, virus removal, smart home & data backup.",
-                href: "/services/home-family",
-              },
-              {
-                icon: Heart,
-                title: "Seniors",
-                description:
-                  "Patient, jargon-free tech help at your pace. Senior discounts available.",
-                href: "/services/seniors",
-              },
-              {
-                icon: Monitor,
-                title: "Remote Support",
-                description:
-                  "Screen sharing, software troubleshooting & configuration help.",
-                href: "/services/remote-support",
-              },
-              {
-                icon: Shield,
-                title: "Security & Backup",
-                description:
-                  "Backup solutions, disaster recovery & cybersecurity setup.",
-                href: "/services/security-backup",
-              },
-              {
-                icon: Wrench,
-                title: "Break / Fix",
-                description:
-                  "One-time repairs with no contracts, no fuss, fast help.",
-                href: "/services/break-fix",
-              },
-              {
-                icon: Package,
-                title: "Procurement & IT Purchasing",
-                description:
-                  "Wholesale pricing on hardware & software — 20–40% below retail.",
-                href: "/services/procurement",
-              },
-            ].map(({ icon: Icon, title, description, href }, i) => (
+            {services.map(({ icon: Icon, title, description, href }, i) => (
               <ScrollReveal key={title} delay={i * 60}>
                 <Link
                   href={href}
@@ -405,7 +358,7 @@ export default function HomePage() {
                 </ul>
                 <Link
                   href="/get-started"
-                  className="block text-center border border-foreground/15 text-foreground/70 px-6 py-3.5 rounded-full text-sm font-medium transition-all duration-400 hover:bg-brand-green hover:border-brand-green hover:text-white"
+                  className={`block text-center ${btnOutline}`}
                 >
                   Get an Estimate
                 </Link>
@@ -442,7 +395,7 @@ export default function HomePage() {
                 </ul>
                 <Link
                   href="/get-started"
-                  className="block text-center border border-foreground/15 text-foreground/70 px-6 py-3.5 rounded-full text-sm font-medium transition-all duration-400 hover:bg-brand-green hover:border-brand-green hover:text-white"
+                  className={`block text-center ${btnOutline}`}
                 >
                   Get an Estimate
                 </Link>
@@ -479,7 +432,7 @@ export default function HomePage() {
                 </ul>
                 <Link
                   href="/get-started"
-                  className="block text-center border border-foreground/15 text-foreground/70 px-6 py-3.5 rounded-full text-sm font-medium transition-all duration-400 hover:bg-brand-green hover:border-brand-green hover:text-white"
+                  className={`block text-center ${btnOutline}`}
                 >
                   Get an Estimate
                 </Link>
@@ -522,7 +475,7 @@ export default function HomePage() {
                   ))}
                 </ul>
                 <ContactButton
-                  className="block w-full text-center bg-white text-brand-green px-6 py-3.5 rounded-full text-sm font-semibold transition-all duration-400 hover:bg-white/90"
+                  className={`block w-full text-center ${btnWhite}`}
                 >
                   Chat with us now
                 </ContactButton>
@@ -597,7 +550,7 @@ export default function HomePage() {
               </p>
               <div className="flex gap-5 flex-wrap mb-16">
                 <ContactButton
-                  className="text-foreground/50 font-medium text-sm border-b border-foreground/20 pb-0.5 transition-all duration-500 hover:text-foreground hover:border-foreground/60"
+                  className={btnGhost}
                   message={CHAT.question}
                 >
                   Email Us
