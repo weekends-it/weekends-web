@@ -287,6 +287,33 @@ export default function HomeFamilyPage() {
         </div>
       </section>
 
+      {/* ===== SENIORS CROSS-LINK ===== */}
+      <section className="bg-surface">
+        <div className="max-w-7xl mx-auto px-8 md:px-16 pb-28 md:pb-40">
+          <ScrollReveal>
+            <div className="bg-foreground/3 border border-foreground/8 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row md:items-center gap-8">
+              <div className="flex-1">
+                <p className="label-section mb-4">For the whole family</p>
+                <h2 className="heading-serif text-[1.8rem] md:text-[2.4rem] text-foreground mb-3">
+                  Got older parents or grandparents?
+                </h2>
+                <p className="text-foreground/40 text-sm md:text-base leading-relaxed max-w-xl">
+                  We also offer patient, jargon-free tech help made just for
+                  seniors — at their pace, clearly explained, with senior
+                  discounts and group sessions for retirement villages.
+                </p>
+              </div>
+              <Link
+                href="/services/seniors"
+                className={`inline-block shrink-0 ${btnPrimary}`}
+              >
+                Tech help for seniors
+              </Link>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* ===== WHAT SUCCESS LOOKS LIKE ===== */}
       <section className="bg-surface-dark">
         <div className="max-w-7xl mx-auto px-8 md:px-16 py-28 md:py-40">
