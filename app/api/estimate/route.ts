@@ -89,7 +89,13 @@ export async function POST(req: NextRequest) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "google/gemma-4-26b-a4b-it:free",
+          // OpenRouter tries these in order, falling through to the next on any
+          // provider error — all free, spread across independent providers.
+          models: [
+            "google/gemma-4-26b-a4b-it:free",
+            "meta-llama/llama-3.3-70b-instruct:free",
+            "qwen/qwen3-next-80b-a3b-instruct:free",
+          ],
           messages: [
             {
               role: "system",
@@ -117,9 +123,31 @@ Return only this JSON, no other text:
 
     if (!openaiRes.ok) {
       const errData = await openaiRes.json().catch(() => ({}));
-      console.error("OpenRouter error:", JSON.stringify(errData, null, 2));
-      const detail = errData?.error?.message ?? "Failed to generate estimate";
-      return NextResponse.json({ error: detail }, { status: 500 });
+      const meta = errData?.error?.metadata;
+      // Surface the upstream provider's real failure — "Provider returned error"
+      // is only OpenRouter's top-level message; the cause lives in metadata.raw.
+      console.error(
+        "OpenRouter error:",
+        JSON.stringify(
+          {
+            httpStatus: openaiRes.status,
+            message: errData?.error?.message,
+            providerName: meta?.provider_name,
+            raw: meta?.raw,
+            fullError: errData,
+          },
+          null,
+          2
+        )
+      );
+      const detail =
+        meta?.raw ||
+        errData?.error?.message ||
+        "Failed to generate estimate";
+      return NextResponse.json(
+        { error: detail, provider: meta?.provider_name ?? null },
+        { status: 500 }
+      );
     }
 
     const openaiData = await openaiRes.json();
