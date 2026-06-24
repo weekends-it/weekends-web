@@ -14,6 +14,7 @@ function getPageName(pathname: string): string {
   if (p.startsWith("/services")) return "Services";
   if (p === "/about") return "About";
   if (p === "/pricing") return "Pricing";
+  if (p.startsWith("/blog")) return "Resources";
   if (p === "/contact") return "Contact";
   if (p === "/get-started") return "Get a Quote";
   return "";
@@ -113,6 +114,7 @@ export default function Navigation() {
                 { href: "/services", label: "Services" },
                 { href: "/pricing", label: "Pricing" },
                 { href: "/about", label: "About" },
+                { href: "/blog", label: "Resources" },
                 { href: "/contact", label: "Contact" },
               ].map(({ href, label }) => (
                 <Link

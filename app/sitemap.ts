@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { areas } from "@/lib/areas";
+import { posts } from "@/lib/posts";
 
 const BASE_URL = "https://wkends.com";
 
@@ -94,6 +95,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.7,
+    })),
+    {
+      url: `${BASE_URL}/blog`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    ...posts.map((p) => ({
+      url: `${BASE_URL}/blog/${p.slug}`,
+      lastModified: new Date(p.date),
+      changeFrequency: "yearly" as const,
+      priority: 0.6,
     })),
   ];
 }
