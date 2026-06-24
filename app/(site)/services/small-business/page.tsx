@@ -3,6 +3,8 @@ import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import ContactButton from "@/components/ContactButton";
 import PageHero from "@/components/PageHero";
+import JsonLd from "@/components/JsonLd";
+import { serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import {
   Clock,
   FileX,
@@ -22,12 +24,15 @@ export const metadata: Metadata = {
   title: "Small Business IT Support Brisbane",
   description:
     "Weekend IT support for Brisbane small businesses. Break/fix repairs, managed IT, network setup, and more — without disrupting your business hours.",
-  openGraph: { title: "Small Business IT Support Brisbane | Weekends IT", url: "/services/small-business" },
+  alternates: { canonical: "/services/small-business" },
+  openGraph: { title: "Small Business IT Support Brisbane | Weekends IT", url: "/services/small-business", images: ["/og-image.jpg"] },
 };
 
 export default function SmallBusinessPage() {
   return (
     <>
+      <JsonLd data={serviceJsonLd({ name: "Small Business IT Support Brisbane", description: "Weekend IT support for Brisbane small businesses. Break/fix repairs, managed IT, network setup, and more — without disrupting your business hours.", path: "/services/small-business" })} />
+      <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Small Business IT Support Brisbane", path: "/services/small-business" }])} />
       {/* ===== HERO ===== */}
       <PageHero image="/images/wkends-1.jpg">
         Reliable IT for your{" "}

@@ -24,17 +24,20 @@ import {
   Package,
   Check,
   X,
+  ChevronRight,
 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: { absolute: "Weekends IT — Weekend IT Support Brisbane" },
   description:
     "On-site IT support available Friday 6pm–2am, Saturday & Sunday 4am–2am. Break/fix from $85/hr, remote support from $70/hr. Covering Gympie to the Gold Coast.",
+  alternates: { canonical: "/" },
   openGraph: {
     title: "Weekends IT — Weekend IT Support Brisbane",
     description:
       "On-site IT support available Friday 6pm–2am, Saturday & Sunday 4am–2am. Break/fix from $85/hr, remote support from $70/hr. Covering Gympie to the Gold Coast.",
     url: "/",
+    images: ["/og-image.jpg"],
   },
 };
 
@@ -352,7 +355,10 @@ export default function HomePage() {
                   href={href}
                   className="group block bg-foreground/3 border border-foreground/8 rounded-2xl p-8 md:p-10 h-full no-underline transition-all duration-500 hover:bg-foreground/6 hover:border-foreground/15"
                 >
-                  <Icon size={20} className="text-foreground/30 mb-5 transition-colors duration-300 group-hover:text-brand-green" />
+                  <div className="flex items-start justify-between mb-5">
+                    <Icon size={20} className="text-foreground/30 transition-colors duration-300 group-hover:text-brand-green" />
+                    <ChevronRight size={18} className="text-foreground/25 transition-all duration-300 group-hover:text-brand-green group-hover:translate-x-1" />
+                  </div>
                   <h3 className="heading-serif text-[1.5rem] md:text-[1.8rem] text-foreground mb-3 transition-colors duration-300 group-hover:text-brand-green">
                     {title}
                   </h3>

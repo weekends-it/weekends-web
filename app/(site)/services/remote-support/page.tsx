@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
+import JsonLd from "@/components/JsonLd";
+import { serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import {
   Laptop,
   Clock,
@@ -21,12 +23,15 @@ export const metadata: Metadata = {
   title: "Remote IT Support",
   description:
     "Remote IT support from $70/hr — available anywhere in Australia. Get help fast without waiting for a site visit. Friday nights, Saturdays, and Sundays.",
-  openGraph: { title: "Remote IT Support | Weekends IT", url: "/services/remote-support" },
+  alternates: { canonical: "/services/remote-support" },
+  openGraph: { title: "Remote IT Support | Weekends IT", url: "/services/remote-support", images: ["/og-image.jpg"] },
 };
 
 export default function RemoteSupportPage() {
   return (
     <>
+      <JsonLd data={serviceJsonLd({ name: "Remote IT Support", description: "Remote IT support from $70/hr — available anywhere in Australia. Get help fast without waiting for a site visit. Friday nights, Saturdays, and Sundays.", path: "/services/remote-support" })} />
+      <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Remote IT Support", path: "/services/remote-support" }])} />
       {/* ===== HERO ===== */}
       <PageHero image="/images/wkends-5.jpg">
         Fast tech help.{" "}

@@ -3,6 +3,9 @@ import { Outfit, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import IntercomProvider from "@/components/IntercomProvider";
+import JsonLd from "@/components/JsonLd";
+import { localBusinessJsonLd, websiteJsonLd } from "@/lib/seo";
+import { Analytics } from "@vercel/analytics/next";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -30,6 +33,21 @@ export const metadata: Metadata = {
     siteName: "Weekends IT",
     locale: "en_AU",
     type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Weekends IT — Weekend IT Support Brisbane" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -54,10 +72,13 @@ export default function RootLayout({
         />
       </head>
       <body className={`${outfit.variable} ${jetbrainsMono.variable} bg-surface-dark`}>
+        <JsonLd data={localBusinessJsonLd} />
+        <JsonLd data={websiteJsonLd} />
         <ThemeProvider>
           {children}
         </ThemeProvider>
         <IntercomProvider />
+        <Analytics />
       </body>
     </html>
   );

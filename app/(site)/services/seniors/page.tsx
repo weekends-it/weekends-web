@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
+import JsonLd from "@/components/JsonLd";
+import { serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import {
   Smartphone,
   MessageSquare,
@@ -20,12 +22,15 @@ export const metadata: Metadata = {
   title: "Tech Support for Seniors Brisbane",
   description:
     "Patient, friendly technology help for Brisbane seniors. We explain everything clearly, move at your pace, and never make you feel bad for asking questions.",
-  openGraph: { title: "Tech Support for Seniors Brisbane | Weekends IT", url: "/services/seniors" },
+  alternates: { canonical: "/services/seniors" },
+  openGraph: { title: "Tech Support for Seniors Brisbane | Weekends IT", url: "/services/seniors", images: ["/og-image.jpg"] },
 };
 
 export default function SeniorsPage() {
   return (
     <>
+      <JsonLd data={serviceJsonLd({ name: "Tech Support for Seniors Brisbane", description: "Patient, friendly technology help for Brisbane seniors. We explain everything clearly, move at your pace, and never make you feel bad for asking questions.", path: "/services/seniors" })} />
+      <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Tech Support for Seniors Brisbane", path: "/services/seniors" }])} />
       {/* ===== HERO ===== */}
       <PageHero image="/images/wkends-8.jpg">
         Patient tech help for seniors.{" "}

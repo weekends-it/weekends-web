@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
+import JsonLd from "@/components/JsonLd";
+import { serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import {
   DollarSign,
   HelpCircle,
@@ -25,12 +27,15 @@ export const metadata: Metadata = {
   title: "IT Equipment Procurement Brisbane",
   description:
     "Source laptops, networking gear, servers, and more through Weekends IT. Better-than-retail pricing via our wholesale distributor network. Brisbane & beyond.",
-  openGraph: { title: "IT Equipment Procurement Brisbane | Weekends IT", url: "/services/procurement" },
+  alternates: { canonical: "/services/procurement" },
+  openGraph: { title: "IT Equipment Procurement Brisbane | Weekends IT", url: "/services/procurement", images: ["/og-image.jpg"] },
 };
 
 export default function ProcurementPage() {
   return (
     <>
+      <JsonLd data={serviceJsonLd({ name: "IT Equipment Procurement Brisbane", description: "Source laptops, networking gear, servers, and more through Weekends IT. Better-than-retail pricing via our wholesale distributor network. Brisbane & beyond.", path: "/services/procurement" })} />
+      <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "IT Equipment Procurement Brisbane", path: "/services/procurement" }])} />
       {/* ===== HERO ===== */}
       <PageHero image="/images/wkends-14.jpg">
         Get better IT equipment at{" "}

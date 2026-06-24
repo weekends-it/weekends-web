@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
+import JsonLd from "@/components/JsonLd";
+import { serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import {
   HardDrive,
   Lock,
@@ -20,12 +22,15 @@ export const metadata: Metadata = {
   title: "Cybersecurity & Backup Solutions Brisbane",
   description:
     "Protect your Brisbane home or business with antivirus, firewall setup, data backup, and security audits. Weekend availability for urgent security issues.",
-  openGraph: { title: "Cybersecurity & Backup Solutions Brisbane | Weekends IT", url: "/services/security-backup" },
+  alternates: { canonical: "/services/security-backup" },
+  openGraph: { title: "Cybersecurity & Backup Solutions Brisbane | Weekends IT", url: "/services/security-backup", images: ["/og-image.jpg"] },
 };
 
 export default function SecurityBackupPage() {
   return (
     <>
+      <JsonLd data={serviceJsonLd({ name: "Cybersecurity & Backup Solutions Brisbane", description: "Protect your Brisbane home or business with antivirus, firewall setup, data backup, and security audits. Weekend availability for urgent security issues.", path: "/services/security-backup" })} />
+      <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Cybersecurity & Backup Solutions Brisbane", path: "/services/security-backup" }])} />
       {/* ===== HERO ===== */}
       <PageHero image="/images/wkends-7.jpg">
         Protect your business from{" "}

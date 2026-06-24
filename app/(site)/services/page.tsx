@@ -13,13 +13,15 @@ import {
   Wrench,
   Package,
   Check,
+  ChevronRight,
 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "IT Services",
   description:
     "Weekend IT services for homes, families, seniors, and small businesses across Brisbane. On-site and remote support, managed IT, procurement, security, and more.",
-  openGraph: { title: "IT Services | Weekends IT", url: "/services" },
+  alternates: { canonical: "/services" },
+  openGraph: { title: "IT Services | Weekends IT", url: "/services", images: ["/og-image.jpg"] },
 };
 
 const services = [
@@ -126,7 +128,10 @@ export default function ServicesPage() {
                   href={href}
                   className="group block bg-foreground/3 border border-foreground/8 rounded-2xl p-8 md:p-10 h-full no-underline transition-all duration-500 hover:bg-foreground/6 hover:border-foreground/15"
                 >
-                  <Icon size={20} className="text-foreground/30 mb-5 transition-colors duration-300 group-hover:text-brand-green" />
+                  <div className="flex items-start justify-between mb-5">
+                    <Icon size={20} className="text-foreground/30 transition-colors duration-300 group-hover:text-brand-green" />
+                    <ChevronRight size={18} className="text-foreground/25 transition-all duration-300 group-hover:text-brand-green group-hover:translate-x-1" />
+                  </div>
                   <h3 className="heading-serif text-[1.5rem] md:text-[1.8rem] text-foreground mb-3 transition-colors duration-300 group-hover:text-brand-green">
                     {title}
                   </h3>

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
+import JsonLd from "@/components/JsonLd";
+import { serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import {
   Gauge,
   WifiOff,
@@ -20,12 +22,15 @@ export const metadata: Metadata = {
   title: "Home & Family IT Support Brisbane",
   description:
     "Weekend IT support for Brisbane homes. Computer repairs, home network setup, smart devices, printers, and more — available when your family is actually home.",
-  openGraph: { title: "Home & Family IT Support Brisbane | Weekends IT", url: "/services/home-family" },
+  alternates: { canonical: "/services/home-family" },
+  openGraph: { title: "Home & Family IT Support Brisbane | Weekends IT", url: "/services/home-family", images: ["/og-image.jpg"] },
 };
 
 export default function HomeFamilyPage() {
   return (
     <>
+      <JsonLd data={serviceJsonLd({ name: "Home & Family IT Support Brisbane", description: "Weekend IT support for Brisbane homes. Computer repairs, home network setup, smart devices, printers, and more — available when your family is actually home.", path: "/services/home-family" })} />
+      <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Home & Family IT Support Brisbane", path: "/services/home-family" }])} />
       {/* ===== HERO ===== */}
       <PageHero image="/images/wkends-20.jpg">
         Technology that{" "}

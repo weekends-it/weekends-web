@@ -8,7 +8,8 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Get in touch with Weekends IT. Available Friday 6pm–2am, Saturday & Sunday 4am–2am. On-site IT support across Brisbane from Gympie to the Gold Coast.",
-  openGraph: { title: "Contact | Weekends IT", url: "/contact" },
+  alternates: { canonical: "/contact" },
+  openGraph: { title: "Contact | Weekends IT", url: "/contact", images: ["/og-image.jpg"] },
 };
 
 export default function ContactPage() {

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
+import JsonLd from "@/components/JsonLd";
+import { serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import {
   Monitor,
   CreditCard,
@@ -19,12 +21,15 @@ export const metadata: Metadata = {
   title: "Retail IT Support Brisbane",
   description:
     "IT support for Brisbane retail businesses. POS systems, EFTPOS, payment terminals, network setup, and weekend availability when you need it most.",
-  openGraph: { title: "Retail IT Support Brisbane | Weekends IT", url: "/services/retail" },
+  alternates: { canonical: "/services/retail" },
+  openGraph: { title: "Retail IT Support Brisbane | Weekends IT", url: "/services/retail", images: ["/og-image.jpg"] },
 };
 
 export default function RetailPage() {
   return (
     <>
+      <JsonLd data={serviceJsonLd({ name: "Retail IT Support Brisbane", description: "IT support for Brisbane retail businesses. POS systems, EFTPOS, payment terminals, network setup, and weekend availability when you need it most.", path: "/services/retail" })} />
+      <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Retail IT Support Brisbane", path: "/services/retail" }])} />
       {/* ===== HERO ===== */}
       <PageHero image="/images/wkends-12.jpg">
         Keep your store{" "}

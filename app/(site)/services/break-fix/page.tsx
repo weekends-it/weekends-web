@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
+import JsonLd from "@/components/JsonLd";
+import { serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import {
   Laptop,
   DollarSign,
@@ -18,12 +20,15 @@ export const metadata: Metadata = {
   title: "Break/Fix IT Repairs Brisbane",
   description:
     "Pay-as-you-go IT repairs in Brisbane from $85/hr. No contracts, no call-out fees. Available Friday night through Sunday, covering Gympie to the Gold Coast.",
-  openGraph: { title: "Break/Fix IT Repairs Brisbane | Weekends IT", url: "/services/break-fix" },
+  alternates: { canonical: "/services/break-fix" },
+  openGraph: { title: "Break/Fix IT Repairs Brisbane | Weekends IT", url: "/services/break-fix", images: ["/og-image.jpg"] },
 };
 
 export default function BreakFixPage() {
   return (
     <>
+      <JsonLd data={serviceJsonLd({ name: "Break/Fix IT Repairs Brisbane", description: "Pay-as-you-go IT repairs in Brisbane from $85/hr. No contracts, no call-out fees. Available Friday night through Sunday, covering Gympie to the Gold Coast.", path: "/services/break-fix" })} />
+      <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Break/Fix IT Repairs Brisbane", path: "/services/break-fix" }])} />
       {/* ===== HERO ===== */}
       <PageHero image="/images/wkends-3.jpg">
         Expert IT help when you need it.{" "}
