@@ -6,7 +6,9 @@ import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
 import ImageBand from "@/components/ImageBand";
 import CtaSection from "@/components/CtaSection";
+import JsonLd from "@/components/JsonLd";
 import { btnPrimary, btnOutline, btnWhite, btnGhost } from "@/lib/styles";
+import { faqJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -16,9 +18,33 @@ export const metadata: Metadata = {
   openGraph: { title: "Pricing | Weekends IT", url: "/pricing", images: ["/og-image.jpg"] },
 };
 
+const faqs = [
+  {
+    q: "Do I need a contract for one-time support?",
+    a: "No. Our break/fix and hourly services are available without any contract. You pay for the time we work.",
+  },
+  {
+    q: "What if a repair takes longer than expected?",
+    a: "We'll always communicate before exceeding quoted time. You approve any additional work before we proceed.",
+  },
+  {
+    q: "What if you can't fix the problem?",
+    a: "You only pay for diagnostic time, and we'll recommend the best path forward — whether that's specialised support or hardware replacement.",
+  },
+  {
+    q: "Can I switch from hourly to MSP later?",
+    a: "Absolutely. Many clients start with break/fix support and transition to MSP as their needs grow. We make it easy.",
+  },
+  {
+    q: "What's included in MSP contracts?",
+    a: "MSP agreements include ongoing monitoring, maintenance, help desk support, and regular check-ins. We'll customise a plan based on your specific needs.",
+  },
+];
+
 export default function PricingPage() {
   return (
     <>
+      <JsonLd data={faqJsonLd(faqs)} />
       {/* ===== HERO ===== */}
       <PageHero image="/images/wkends-22.jpg" alt="Weekends IT service pricing">
         Transparent pricing that{" "}
@@ -377,28 +403,7 @@ export default function PricingPage() {
                   Common questions.
                 </h2>
                 <div className="space-y-0">
-                  {[
-                    {
-                      q: "Do I need a contract for one-time support?",
-                      a: "No. Our break/fix and hourly services are available without any contract. You pay for the time we work.",
-                    },
-                    {
-                      q: "What if a repair takes longer than expected?",
-                      a: "We'll always communicate before exceeding quoted time. You approve any additional work before we proceed.",
-                    },
-                    {
-                      q: "What if you can't fix the problem?",
-                      a: "You only pay for diagnostic time, and we'll recommend the best path forward — whether that's specialised support or hardware replacement.",
-                    },
-                    {
-                      q: "Can I switch from hourly to MSP later?",
-                      a: "Absolutely. Many clients start with break/fix support and transition to MSP as their needs grow. We make it easy.",
-                    },
-                    {
-                      q: "What's included in MSP contracts?",
-                      a: "MSP agreements include ongoing monitoring, maintenance, help desk support, and regular check-ins. We'll customise a plan based on your specific needs.",
-                    },
-                  ].map(({ q, a }) => (
+                  {faqs.map(({ q, a }) => (
                     <div
                       key={q}
                       className="border-t border-foreground/8 py-5"

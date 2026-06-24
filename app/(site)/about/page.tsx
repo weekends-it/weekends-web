@@ -11,7 +11,7 @@ import { btnPrimary, btnGhost } from "@/lib/styles";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Weekends IT is Brisbane's weekend IT support service — available when others aren't. We show up Friday nights, Saturdays, and Sundays so you're never left waiting until Monday.",
+    "Brisbane's weekend IT support service — available when others aren't. We show up Friday night through Sunday, so you're never left waiting until Monday for help.",
   alternates: { canonical: "/about" },
   openGraph: { title: "About Us | Weekends IT", url: "/about", images: ["/og-image.jpg"] },
 };

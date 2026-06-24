@@ -7,7 +7,7 @@ import ContactButton from "@/components/ContactButton";
 import ImageBand from "@/components/ImageBand";
 import { btnPrimary, btnGhost } from "@/lib/styles";
 import { CHAT } from "@/lib/chat";
-import { serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
 import {
   DollarSign,
   HelpCircle,
@@ -35,11 +35,39 @@ export const metadata: Metadata = {
   openGraph: { title: "IT Equipment Procurement Brisbane | Weekends IT", url: "/services/procurement", images: ["/og-image.jpg"] },
 };
 
+const faqs = [
+  {
+    q: "How much do you charge for procurement?",
+    a: "Our procurement service is free when you purchase equipment through us. We make a small margin on the wholesale pricing but still save you significantly compared to retail. Installation is quoted separately based on complexity.",
+  },
+  {
+    q: "Can you get any brand or product?",
+    a: "We can source most business-grade IT equipment. If we can't get something through our direct partnerships, we can usually source it through our distributor network.",
+  },
+  {
+    q: "What if I find it cheaper elsewhere?",
+    a: "Let us know — we'll do our best to match or beat legitimate pricing. Our quotes are based on current supplier pricing, which varies by product and volume.",
+  },
+  {
+    q: "Do you handle warranties?",
+    a: "Yes. We register all warranties and serve as your liaison with manufacturers for any warranty claims. One call to us instead of navigating manufacturer support.",
+  },
+  {
+    q: "Can I buy equipment without installation?",
+    a: "Absolutely. We're happy to procure equipment at wholesale pricing without installation services if you prefer to handle setup yourself.",
+  },
+  {
+    q: "How long does procurement take?",
+    a: "Most items ship within 1–3 business days. Custom-configured servers or specialised equipment may take 1–2 weeks. We'll give you a timeline upfront.",
+  },
+];
+
 export default function ProcurementPage() {
   return (
     <>
       <JsonLd data={serviceJsonLd({ name: "IT Equipment Procurement Brisbane", description: "Source laptops, networking gear, servers, and more through Weekends IT. Better-than-retail pricing via our wholesale distributor network. Brisbane & beyond.", path: "/services/procurement" })} />
       <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "IT Equipment Procurement Brisbane", path: "/services/procurement" }])} />
+      <JsonLd data={faqJsonLd(faqs)} />
       {/* ===== HERO ===== */}
       <PageHero image="/images/wkends-14.jpg" alt="IT equipment procurement">
         Get better IT equipment at{" "}
@@ -569,32 +597,7 @@ export default function ProcurementPage() {
           </ScrollReveal>
 
           <div className="grid md:grid-cols-2 gap-4">
-            {[
-              {
-                q: "How much do you charge for procurement?",
-                a: "Our procurement service is free when you purchase equipment through us. We make a small margin on the wholesale pricing but still save you significantly compared to retail. Installation is quoted separately based on complexity.",
-              },
-              {
-                q: "Can you get any brand or product?",
-                a: "We can source most business-grade IT equipment. If we can't get something through our direct partnerships, we can usually source it through our distributor network.",
-              },
-              {
-                q: "What if I find it cheaper elsewhere?",
-                a: "Let us know — we'll do our best to match or beat legitimate pricing. Our quotes are based on current supplier pricing, which varies by product and volume.",
-              },
-              {
-                q: "Do you handle warranties?",
-                a: "Yes. We register all warranties and serve as your liaison with manufacturers for any warranty claims. One call to us instead of navigating manufacturer support.",
-              },
-              {
-                q: "Can I buy equipment without installation?",
-                a: "Absolutely. We're happy to procure equipment at wholesale pricing without installation services if you prefer to handle setup yourself.",
-              },
-              {
-                q: "How long does procurement take?",
-                a: "Most items ship within 1–3 business days. Custom-configured servers or specialised equipment may take 1–2 weeks. We'll give you a timeline upfront.",
-              },
-            ].map(({ q, a }, i) => (
+            {faqs.map(({ q, a }, i) => (
               <ScrollReveal key={q} delay={i * 60}>
                 <div className="bg-foreground/3 border border-foreground/8 rounded-2xl p-8 md:p-10 h-full">
                   <h3 className="heading-serif text-[1.3rem] md:text-[1.4rem] text-foreground mb-4">

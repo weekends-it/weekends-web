@@ -105,3 +105,45 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
     })),
   };
 }
+
+// FAQPage — makes Q&A eligible for expandable FAQ rich results in Google.
+export function faqJsonLd(items: { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+}
+
+// Article — for blog posts. Helps Google understand and surface content.
+export function articleJsonLd({
+  title,
+  description,
+  path,
+  datePublished,
+  image,
+}: {
+  title: string;
+  description: string;
+  path: string;
+  datePublished: string;
+  image?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    datePublished,
+    dateModified: datePublished,
+    image: image ?? SITE.ogImage,
+    url: `${SITE.url}${path}`,
+    author: { "@type": "Organization", name: SITE.name, url: SITE.url },
+    publisher: { "@id": `${SITE.url}/#business` },
+    mainEntityOfPage: `${SITE.url}${path}`,
+  };
+}
