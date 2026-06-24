@@ -26,7 +26,7 @@ export const areas: Area[] = [
       "Weekends IT is based right here in Brisbane — so when something breaks on a Saturday, you're not stuck waiting until Monday. We cover homes and small businesses across the greater Brisbane area, on-site or remote, Friday evening through Sunday night.",
     localNote:
       "From the CBD to the bayside suburbs near our Banyo base, and out across the northern and southern suburbs, we keep Brisbane locals connected — POS systems, home networks, computer repairs, and ongoing managed IT.",
-    heroImage: "/images/wkends-1.jpg",
+    heroImage: "/images/area-brisbane.jpg",
   },
   {
     slug: "sunshine-coast",
@@ -40,7 +40,7 @@ export const areas: Area[] = [
       "Reliable weekend IT support across the Sunshine Coast — from Caloundra and Maroochydore up to Noosa. Whether you run a café in Mooloolaba or you're a retiree who just wants the iPad to behave, we come to you on weekends when most IT shops are shut.",
     localNote:
       "We regularly travel the Bruce Highway to support Sunshine Coast homes, holiday lets and small businesses — retail and hospitality tech, home networks, patient senior tech help, and group sessions for local retirement villages.",
-    heroImage: "/images/wkends-20.jpg",
+    heroImage: "/images/area-sunshine-coast.jpg",
   },
   {
     slug: "gold-coast",
@@ -54,7 +54,7 @@ export const areas: Area[] = [
       "Weekend IT support across the Gold Coast — Southport, Surfers Paradise, Burleigh and the hinterland. Tourism and retail never sleep, and neither does your tech's habit of failing at the worst possible time. We're available exactly when your business is busiest.",
     localNote:
       "From beachfront retail and hospitality venues to home offices up in the hinterland, we handle POS and payment systems, networks, repairs and ongoing managed IT — Friday night through Sunday.",
-    heroImage: "/images/wkends-13.jpg",
+    heroImage: "/images/area-gold-coast.jpg",
   },
   {
     slug: "gympie",
@@ -68,7 +68,7 @@ export const areas: Area[] = [
       "Regional towns often get the short end of the stick on IT support — so we travel. Weekends IT covers Gympie and the surrounding region for homes and small businesses that would otherwise have to drive to the coast just to get help.",
     localNote:
       "On-site weekend visits for computer repairs, networks, POS and small-business systems, plus remote support any time. If you're north of the Sunshine Coast, we've got you covered.",
-    heroImage: "/images/wkends-7.jpg",
+    heroImage: "/images/area-gympie.jpg",
   },
 ];
 
