@@ -785,6 +785,23 @@ function ResultDisplay({
           <p className="text-sm leading-relaxed" style={{ color: '#374151' }}>{result.reasoning}</p>
         </div>
 
+        {/* Reassurance */}
+        <div style={{ padding: '0 2rem 1.5rem' }}>
+          <div style={{ backgroundColor: '#f0fdf4', border: '1px solid #dcfce7', borderRadius: '1rem', padding: '1.25rem 1.5rem' }}>
+            <p className="font-semibold" style={{ color: '#15803d', marginBottom: '0.4rem' }}>
+              Woah — more than you thought?
+            </p>
+            <p className="text-sm leading-relaxed" style={{ color: '#374151' }}>
+              Take a breath. This is a deliberately <strong>cautious</strong> estimate
+              — we quote the higher end so you&apos;re never caught off guard. In
+              reality our technicians are quick: plenty of jobs that look tricky
+              turn out to be a one-hour fix. You only ever pay for the time
+              actually worked, we confirm the final price <em>before</em> we start,
+              and more often than not you&apos;ll pay less than the number above.
+            </p>
+          </div>
+        </div>
+
         {/* Divider */}
         <div style={{ height: '1px', backgroundColor: '#f3f4f6', margin: '0 2rem' }} />
 
