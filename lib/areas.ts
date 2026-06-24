@@ -18,7 +18,7 @@ export const areas: Area[] = [
     slug: "brisbane",
     name: "Brisbane",
     connector: "in",
-    metaTitle: "IT Support Brisbane — Weekend On-Site & Remote | Weekends IT",
+    metaTitle: "IT Support Brisbane — After-Hours & Weekend | Weekends IT",
     metaDescription:
       "After-hours and weekend IT support across Brisbane for homes and small businesses. On-site or remote, weeknight evenings and all weekend — no waiting until Monday.",
     headline: "Brisbane",
@@ -32,7 +32,7 @@ export const areas: Area[] = [
     slug: "sunshine-coast",
     name: "Sunshine Coast",
     connector: "on the",
-    metaTitle: "IT Support Sunshine Coast — Weekend Help | Weekends IT",
+    metaTitle: "IT Support Sunshine Coast — After-Hours & Weekend | Weekends IT",
     metaDescription:
       "Weekend IT support on the Sunshine Coast — Caloundra to Noosa. On-site help for homes, holiday lets and small businesses when most IT shops are closed.",
     headline: "Sunshine Coast",
@@ -46,7 +46,7 @@ export const areas: Area[] = [
     slug: "gold-coast",
     name: "Gold Coast",
     connector: "on the",
-    metaTitle: "IT Support Gold Coast — Weekend On-Site Help | Weekends IT",
+    metaTitle: "IT Support Gold Coast — After-Hours & Weekend | Weekends IT",
     metaDescription:
       "Weekend IT support on the Gold Coast — Southport, Surfers Paradise, Burleigh and the hinterland. POS, networks and repairs when your business is busiest.",
     headline: "Gold Coast",
@@ -60,7 +60,7 @@ export const areas: Area[] = [
     slug: "gympie",
     name: "Gympie",
     connector: "in",
-    metaTitle: "IT Support Gympie — Weekend & Regional Help | Weekends IT",
+    metaTitle: "IT Support Gympie — After-Hours & Weekend | Weekends IT",
     metaDescription:
       "Weekend IT support in Gympie and the surrounding region. On-site visits for homes and small businesses, plus remote support — without the drive to the coast.",
     headline: "Gympie",
