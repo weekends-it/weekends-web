@@ -20,10 +20,10 @@ export async function POST(req: NextRequest) {
     }
 
     const mapboxToken = process.env.MAPBOX_SECRET_TOKEN;
-    const openaiKey = process.env.OPENAI_API_KEY;
+    const openrouterKey = process.env.OPENROUTER_API_KEY;
 
-    if (!mapboxToken || !openaiKey) {
-      const missing = [!mapboxToken && "MAPBOX_SECRET_TOKEN", !openaiKey && "OPENAI_API_KEY"].filter(Boolean).join(", ");
+    if (!mapboxToken || !openrouterKey) {
+      const missing = [!mapboxToken && "MAPBOX_SECRET_TOKEN", !openrouterKey && "OPENROUTER_API_KEY"].filter(Boolean).join(", ");
       return NextResponse.json(
         { error: `Missing env vars: ${missing}` },
         { status: 500 }
@@ -79,17 +79,17 @@ export async function POST(req: NextRequest) {
     const distanceKm = route.distance / 1000;
     const durationMinutes = Math.round(route.duration / 60);
 
-    // 3. Call OpenAI for hour estimate
+    // 3. Call OpenRouter for hour estimate
     const openaiRes = await fetch(
-      "https://api.openai.com/v1/chat/completions",
+      "https://openrouter.ai/api/v1/chat/completions",
       {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${openaiKey}`,
+          Authorization: `Bearer ${openrouterKey}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "gpt-4o-mini",
+          model: "google/gemma-4-26b-a4b-it:free",
           messages: [
             {
               role: "system",
@@ -117,7 +117,7 @@ Return only this JSON, no other text:
 
     if (!openaiRes.ok) {
       const errData = await openaiRes.json().catch(() => ({}));
-      console.error("OpenAI error:", JSON.stringify(errData, null, 2));
+      console.error("OpenRouter error:", JSON.stringify(errData, null, 2));
       const detail = errData?.error?.message ?? "Failed to generate estimate";
       return NextResponse.json({ error: detail }, { status: 500 });
     }
