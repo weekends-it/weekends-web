@@ -24,7 +24,7 @@ import {
 export const metadata: Metadata = {
   title: "Break/Fix IT Repairs Brisbane",
   description:
-    "Pay-as-you-go IT repairs in Brisbane from $85/hr. No contracts, no call-out fees. Available Friday night through Sunday, covering Gympie to the Gold Coast.",
+    "Pay-as-you-go IT repairs in Brisbane from $85/hr. No contracts, no call-out fees. Available weeknight evenings and all weekend, covering Gympie to the Gold Coast.",
   alternates: { canonical: "/services/break-fix" },
   openGraph: { title: "Break/Fix IT Repairs Brisbane | Weekends IT", url: "/services/break-fix", images: ["/og-image.jpg"] },
 };
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 export default function BreakFixPage() {
   return (
     <>
-      <JsonLd data={serviceJsonLd({ name: "Break/Fix IT Repairs Brisbane", description: "Pay-as-you-go IT repairs in Brisbane from $85/hr. No contracts, no call-out fees. Available Friday night through Sunday, covering Gympie to the Gold Coast.", path: "/services/break-fix" })} />
+      <JsonLd data={serviceJsonLd({ name: "Break/Fix IT Repairs Brisbane", description: "Pay-as-you-go IT repairs in Brisbane from $85/hr. No contracts, no call-out fees. Available weeknight evenings and all weekend, covering Gympie to the Gold Coast.", path: "/services/break-fix" })} />
       <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Break/Fix IT Repairs Brisbane", path: "/services/break-fix" }])} />
       {/* ===== HERO ===== */}
       <PageHero image="/images/wkends-3.jpg" alt="Break-fix computer repairs in Brisbane">
@@ -321,7 +321,7 @@ export default function BreakFixPage() {
                   {[
                     "Expert help available when you need it, no monthly commitment",
                     "Pay only for actual time worked",
-                    "Same weekend availability and fast response",
+                    "Same weeknight evening and weekend availability with fast response",
                     "Freedom to use us as much or as little as needed",
                     "Professional service without being locked into contracts",
                     "Transparent pricing with no hidden fees",

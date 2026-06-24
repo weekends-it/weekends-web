@@ -26,7 +26,7 @@ import {
 export const metadata: Metadata = {
   title: "Home & Family IT Support Brisbane",
   description:
-    "Weekend IT support for Brisbane homes. Computer repairs, home network setup, smart devices, printers, and more — available when your family is actually home.",
+    "Weeknight and weekend IT support for Brisbane homes — computer repairs, home networks, smart devices, printers and more, when your family is actually home.",
   alternates: { canonical: "/services/home-family" },
   openGraph: { title: "Home & Family IT Support Brisbane | Weekends IT", url: "/services/home-family", images: ["/og-image.jpg"] },
 };
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 export default function HomeFamilyPage() {
   return (
     <>
-      <JsonLd data={serviceJsonLd({ name: "Home & Family IT Support Brisbane", description: "Weekend IT support for Brisbane homes. Computer repairs, home network setup, smart devices, printers, and more — available when your family is actually home.", path: "/services/home-family" })} />
+      <JsonLd data={serviceJsonLd({ name: "Home & Family IT Support Brisbane", description: "Weeknight and weekend IT support for Brisbane homes — computer repairs, home networks, smart devices, printers and more, when your family is actually home.", path: "/services/home-family" })} />
       <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Home & Family IT Support Brisbane", path: "/services/home-family" }])} />
       {/* ===== HERO ===== */}
       <PageHero image="/images/wkends-20.jpg" alt="Home and family tech support in Brisbane">

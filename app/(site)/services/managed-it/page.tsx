@@ -27,7 +27,7 @@ import {
 export const metadata: Metadata = {
   title: "Managed IT Services Brisbane",
   description:
-    "Proactive managed IT for Brisbane businesses from $499/mo per 5 users. Includes monitoring, maintenance, help desk support, and weekend availability.",
+    "Proactive managed IT for Brisbane businesses from $499/mo per 5 users. Includes monitoring, maintenance, help desk support, and after-hours and weekend availability.",
   alternates: { canonical: "/services/managed-it" },
   openGraph: { title: "Managed IT Services Brisbane | Weekends IT", url: "/services/managed-it", images: ["/og-image.jpg"] },
 };
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 export default function ManagedITPage() {
   return (
     <>
-      <JsonLd data={serviceJsonLd({ name: "Managed IT Services Brisbane", description: "Proactive managed IT for Brisbane businesses from $499/mo per 5 users. Includes monitoring, maintenance, help desk support, and weekend availability.", path: "/services/managed-it" })} />
+      <JsonLd data={serviceJsonLd({ name: "Managed IT Services Brisbane", description: "Proactive managed IT for Brisbane businesses from $499/mo per 5 users. Includes monitoring, maintenance, help desk support, and after-hours and weekend availability.", path: "/services/managed-it" })} />
       <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Managed IT Services Brisbane", path: "/services/managed-it" }])} />
       {/* ===== HERO ===== */}
       <PageHero image="/images/wkends-10.jpg" alt="Managed IT services in Brisbane">
@@ -184,7 +184,7 @@ export default function ManagedITPage() {
                 step: "03",
                 title: "Ongoing partnership",
                 description:
-                  "You get predictable monthly costs, priority support including weekends, and a trusted partner who knows your systems inside and out.",
+                  "You get predictable monthly costs, priority support including weeknight evenings and weekends, and a trusted partner who knows your systems inside and out.",
               },
             ].map(({ step, title, description }, i) => (
               <ScrollReveal key={step} delay={i * 100}>
@@ -454,7 +454,7 @@ export default function ManagedITPage() {
                   {[
                     "Systems monitored 24/7 with issues caught before you notice",
                     "Predictable monthly costs instead of surprise repair bills",
-                    "Priority support with fast response, especially weekends",
+                    "Priority support with fast response, especially after hours and weekends",
                     "Regular backups that are tested and verified",
                     "Proactive security protecting your business",
                     "Strategic IT planning aligned with business goals",

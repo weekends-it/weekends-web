@@ -628,7 +628,7 @@ export default function SeniorsPage() {
                     "Patient, jargon-free teaching at their pace",
                     "Video calling, photos, messaging & online safety",
                     "Printed step-by-step guides to keep",
-                    "Flexible scheduling, including weekends",
+                    "Flexible scheduling, including weeknight evenings & weekends",
                     "Tailored to your residents' devices & needs",
                   ].map((item) => (
                     <li

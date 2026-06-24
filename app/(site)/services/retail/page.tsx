@@ -25,7 +25,7 @@ import {
 export const metadata: Metadata = {
   title: "Retail IT Support Brisbane",
   description:
-    "IT support for Brisbane retail businesses. POS systems, EFTPOS, payment terminals, network setup, and weekend availability when you need it most.",
+    "IT support for Brisbane retail businesses. POS systems, EFTPOS, payment terminals, network setup, and after-hours and weekend availability when you need it most.",
   alternates: { canonical: "/services/retail" },
   openGraph: { title: "Retail IT Support Brisbane | Weekends IT", url: "/services/retail", images: ["/og-image.jpg"] },
 };
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 export default function RetailPage() {
   return (
     <>
-      <JsonLd data={serviceJsonLd({ name: "Retail IT Support Brisbane", description: "IT support for Brisbane retail businesses. POS systems, EFTPOS, payment terminals, network setup, and weekend availability when you need it most.", path: "/services/retail" })} />
+      <JsonLd data={serviceJsonLd({ name: "Retail IT Support Brisbane", description: "IT support for Brisbane retail businesses. POS systems, EFTPOS, payment terminals, network setup, and after-hours and weekend availability when you need it most.", path: "/services/retail" })} />
       <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Retail IT Support Brisbane", path: "/services/retail" }])} />
       {/* ===== HERO ===== */}
       <PageHero image="/images/wkends-12.jpg" alt="Retail IT and POS support in Brisbane">
@@ -53,7 +53,7 @@ export default function RetailPage() {
                   real revenue
                 </strong>
                 . Most IT companies don&apos;t understand retail and aren&apos;t
-                available on weekends. We are.
+                available after hours or on weekends. We are.
               </p>
               <ScrollReveal delay={200}>
                 <div className="mt-10">
@@ -97,7 +97,7 @@ export default function RetailPage() {
                 icon: Clock,
                 title: "No one understands retail urgency",
                 description:
-                  "Most IT companies don't understand retail and aren't available on weekends — when you need help most.",
+                  "Most IT companies don't understand retail and aren't available weeknight evenings or weekends — when you need help most.",
               },
               {
                 icon: TrendingDown,
@@ -260,7 +260,7 @@ export default function RetailPage() {
                 icon: Clock,
                 title: "Weekend Priority",
                 description:
-                  "Saturday and Sunday are your busiest days. That\u2019s exactly when we\u2019re available. Fast response when you need it most.",
+                  "Late weeknights and weekends are when you need cover most. That\u2019s exactly when we\u2019re available. Fast response when you need it most.",
               },
             ].map(({ icon: Icon, title, description }, i) => (
               <ScrollReveal key={title} delay={i * 60}>

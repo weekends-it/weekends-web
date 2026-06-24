@@ -26,7 +26,7 @@ import {
 export const metadata: Metadata = {
   title: "Small Business IT Support Brisbane",
   description:
-    "Weekend IT support for Brisbane small businesses. Break/fix repairs, managed IT, network setup, and more — without disrupting your business hours.",
+    "After-hours and weekend IT support for Brisbane small businesses. Break/fix repairs, managed IT, network setup, and more — without disrupting your business hours.",
   alternates: { canonical: "/services/small-business" },
   openGraph: { title: "Small Business IT Support Brisbane | Weekends IT", url: "/services/small-business", images: ["/og-image.jpg"] },
 };
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 export default function SmallBusinessPage() {
   return (
     <>
-      <JsonLd data={serviceJsonLd({ name: "Small Business IT Support Brisbane", description: "Weekend IT support for Brisbane small businesses. Break/fix repairs, managed IT, network setup, and more — without disrupting your business hours.", path: "/services/small-business" })} />
+      <JsonLd data={serviceJsonLd({ name: "Small Business IT Support Brisbane", description: "After-hours and weekend IT support for Brisbane small businesses. Break/fix repairs, managed IT, network setup, and more — without disrupting your business hours.", path: "/services/small-business" })} />
       <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Small Business IT Support Brisbane", path: "/services/small-business" }])} />
       {/* ===== HERO ===== */}
       <PageHero image="/images/wkends-1.jpg" alt="Small business IT support in Brisbane">
@@ -87,7 +87,7 @@ export default function SmallBusinessPage() {
                 icon: Clock,
                 title: "Help isn't there when you need it",
                 description:
-                  "Your network goes down on Saturday and you're scrambling to find help that isn't available on weekends.",
+                  "Your network goes down after hours or on Saturday and you're scrambling to find help that isn't available weeknight evenings or weekends.",
               },
               {
                 icon: FileX,
@@ -177,7 +177,7 @@ export default function SmallBusinessPage() {
                 step: "02",
                 title: "We fix it fast",
                 description:
-                  "Weekend availability, fast response times, and clear communication. We get you back up and running quickly.",
+                  "Weeknight after-hours and weekend availability, fast response times, and clear communication. We get you back up and running quickly.",
               },
               {
                 step: "03",
@@ -256,7 +256,7 @@ export default function SmallBusinessPage() {
                 icon: CalendarDays,
                 title: "Weekend Availability",
                 description:
-                  "We work Saturdays and Sundays because that\u2019s when problems actually happen. Get help when other IT companies are closed.",
+                  "We work weeknight evenings and weekends because that\u2019s when problems actually happen. Get help when other IT companies are closed.",
               },
               {
                 icon: TrendingUp,

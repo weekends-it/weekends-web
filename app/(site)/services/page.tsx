@@ -12,7 +12,7 @@ import { btnPrimary, btnGhost } from "@/lib/styles";
 export const metadata: Metadata = {
   title: "IT Services",
   description:
-    "Weekend IT services for homes, families, seniors, and small businesses across Brisbane. On-site and remote support, managed IT, procurement, security, and more.",
+    "After-hours and weekend IT services for Brisbane homes, families, seniors and small businesses — on-site and remote support, managed IT, security and more.",
   alternates: { canonical: "/services" },
   openGraph: { title: "IT Services | Weekends IT", url: "/services", images: ["/og-image.jpg"] },
 };
