@@ -94,6 +94,10 @@ export async function POST(req: NextRequest) {
             "openai/gpt-oss-20b:free",
             "openai/gpt-oss-120b:free",
           ],
+          // The estimate is a small JSON answer — keep reasoning light and cap
+          // the output so each call stays fast and token-lean.
+          reasoning: { effort: "low" },
+          max_tokens: 700,
           messages: [
             {
               role: "system",
