@@ -61,6 +61,10 @@ export default function ContactPage() {
                     </p>
                     <div className="space-y-2 text-sm text-foreground/50">
                       <p>
+                        <span className="text-foreground/70">Mon–Thu:</span>{" "}
+                        6pm–2am <span className="text-foreground/30">(after hours)</span>
+                      </p>
+                      <p>
                         <span className="text-foreground/70">Friday:</span>{" "}
                         6pm–2am
                       </p>

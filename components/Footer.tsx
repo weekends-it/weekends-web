@@ -43,6 +43,7 @@ export default function Footer() {
           <div>
             <p className="text-xs font-medium uppercase tracking-widest text-white/50 mb-5">Hours</p>
             <ul className="space-y-3">
+              <li className="text-white/80 text-sm">Mon–Thu 6pm–2am</li>
               <li className="text-white/80 text-sm">Fri 6pm–2am</li>
               <li className="text-white/80 text-sm">Sat 4am–2am</li>
               <li className="text-white/80 text-sm">Sun 4am–2am</li>
