@@ -156,17 +156,6 @@ export default function ServicesPage() {
                   "Compliance support",
                 ],
               },
-              {
-                title: "Procurement & IT Purchasing",
-                items: [
-                  "Wholesale hardware pricing",
-                  "Software licensing at volume rates",
-                  "Multi-vendor sourcing",
-                  "Device setup and deployment",
-                  "Warranty and support management",
-                  "Budget planning and consulting",
-                ],
-              },
             ].map(({ title, items }, i) => (
               <ScrollReveal key={title} delay={i * 60}>
                 <div className="bg-foreground/3 border border-foreground/8 rounded-2xl p-8 md:p-10">

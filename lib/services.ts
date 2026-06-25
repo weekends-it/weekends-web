@@ -6,7 +6,6 @@ import {
   Monitor,
   Shield,
   Wrench,
-  Package,
   type LucideIcon,
 } from "lucide-react";
 
@@ -67,12 +66,5 @@ export const services: ServiceItem[] = [
     description:
       "One-time repairs with no contracts, no fuss, fast help.",
     href: "/services/break-fix",
-  },
-  {
-    icon: Package,
-    title: "Procurement & IT Purchasing",
-    description:
-      "Wholesale pricing on hardware & software — 20–40% below retail.",
-    href: "/services/procurement",
   },
 ];

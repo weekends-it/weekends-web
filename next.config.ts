@@ -5,6 +5,15 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+  async redirects() {
+    return [
+      {
+        source: "/services/procurement",
+        destination: "/services",
+        permanent: true,
+      },
+    ];
+  },
   turbopack: {
     root: ".",
   },
