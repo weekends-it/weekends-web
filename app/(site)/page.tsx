@@ -4,7 +4,6 @@ import ScrollReveal from "@/components/ScrollReveal";
 import ContactButton from "@/components/ContactButton";
 import { CHAT } from "@/lib/chat";
 import HeroSection from "@/components/HeroSection";
-import BrandScroller from "@/components/BrandScroller";
 import {
   Laptop,
   Store,
@@ -112,9 +111,6 @@ export default function HomePage() {
           </ScrollReveal>
         </div>
       </section>
-
-      {/* ===== BRAND SCROLLER ===== */}
-      <BrandScroller />
 
       {/* ===== THE SOLUTION / HOW IT WORKS ===== */}
       <section className="bg-surface-dark">
